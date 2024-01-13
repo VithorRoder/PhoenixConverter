@@ -3,10 +3,13 @@ package mt2converter;
 import com.formdev.flatlaf.FlatDarkLaf;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 /**
@@ -63,12 +66,27 @@ public class PhoenixConverter {
     }
 
     private static void exibirMensagemAtualizacao() {
-        JOptionPane.showMessageDialog(null,
-                "Uma versão mais recente está disponível. Por favor, faça o download da versão mais recente.",
+        int opcao = JOptionPane.showConfirmDialog(null,
+                "Uma versão mais recente está disponível. Deseja fazer o download e instalar agora?",
                 "Atualização Disponível",
-                JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.YES_NO_OPTION);
 
-        // Pode encerrar o programa aqui ou redirecionar para a página de download, etc.
-        System.exit(0);
+        if (opcao == JOptionPane.YES_OPTION) {
+            abrirLinkDownload();
+            System.exit(0); // Encerra o programa após o usuário escolher fazer o download
+        } else {
+            // Continua com o programa
+            JFrame frame = new FramePhoenixConverter();
+            frame.setVisible(true);
+        }
+    }
+
+    private static void abrirLinkDownload() {
+        try {
+            URI uri = new URI("https://github.com/VithorRoder/PhoenixConverter/archive/refs/tags/1.0.1.zip");
+            Desktop.getDesktop().browse(uri);
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 }
