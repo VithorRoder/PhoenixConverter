@@ -12,9 +12,9 @@ public class PhoenixConverter {
     public static void main(String[] args) {
 
         FlatDarkLaf.setup();
-        JFrame frame = new FramePhoenixConverter();
+        JFrame frame = new FramePhoenixConverter();        
         frame.setVisible(true);
-
+      
     }
 
 }

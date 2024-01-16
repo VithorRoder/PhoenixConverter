@@ -1,24 +1,41 @@
 package mt2converter;
 
-import java.awt.CardLayout;
+import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class FramePhoenixConverter extends javax.swing.JFrame {
 
+    private int mouseX, mouseY;
+
     public FramePhoenixConverter() {
         initComponents();
-        setExtendedState(FramePhoenixConverter.MAXIMIZED_BOTH);
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/png/convert.png"));
         setIconImage(icon);
-        setTitle("Conversor Phoenix");
-        getContentPane().removeAll();
-        CardLayout card = new CardLayout();
-        getContentPane().setLayout(card);
-        getContentPane().add(new PainelPrincipal(), "PainelPrincipal");
-        card.show(getContentPane(), "PainelPrincipal");
-        getContentPane().revalidate();
-        getContentPane().repaint();
+        setTitle("Conversor Phoenix");      
+        Container container = getContentPane();
+        container.setLayout(new BorderLayout());
+        container.add(new PainelPrincipal(), BorderLayout.CENTER);
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                mouseX = e.getX();
+                mouseY = e.getY();
+            }
+        });
+
+        addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                int x = e.getXOnScreen() - mouseX;
+                int y = e.getYOnScreen() - mouseY;
+                setLocation(x, y);
+            }
+        });
 
     }
 
@@ -27,20 +44,18 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1400, 750));
-        setMinimumSize(new java.awt.Dimension(1400, 750));
-        setPreferredSize(new java.awt.Dimension(1400, 750));
+        setMinimumSize(new java.awt.Dimension(1360, 700));
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1400, Short.MAX_VALUE)
+            .addGap(0, 1280, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGap(0, 662, Short.MAX_VALUE)
         );
 
         pack();

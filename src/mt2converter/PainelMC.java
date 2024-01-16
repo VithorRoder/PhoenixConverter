@@ -3,10 +3,8 @@ package mt2converter;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Desktop;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.text.NumberFormat;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 public class PainelMC extends javax.swing.JPanel {
@@ -22,14 +20,13 @@ public class PainelMC extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabelPhoenix = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldTotal = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jLabelValorMinimo = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldPorcentagem = new javax.swing.JTextField();
@@ -45,17 +42,17 @@ public class PainelMC extends javax.swing.JPanel {
         jComboBoxAcabamento = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(1360, 700));
         setMinimumSize(new java.awt.Dimension(1360, 700));
         setPreferredSize(new java.awt.Dimension(1360, 700));
 
-        jPanel1.setBackground(new java.awt.Color(82, 82, 82));
-        jPanel1.setMaximumSize(new java.awt.Dimension(32767, 32767));
+        jPanel1.setBackground(new java.awt.Color(69, 0, 0));
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
 
-        jLabelPhoenix.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelPhoenix.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/phoenix.png"))); // NOI18N
-        jLabelPhoenix.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/PhoenixTransp89.png"))); // NOI18N
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel1.setFont(new java.awt.Font("Perpetua", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -81,6 +78,7 @@ public class PainelMC extends javax.swing.JPanel {
         jLabel5.setText("Total Custo");
 
         jTextFieldTotal.setEditable(false);
+        jTextFieldTotal.setBackground(new java.awt.Color(70, 73, 75));
         jTextFieldTotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldTotal.setBorder(null);
@@ -91,23 +89,6 @@ public class PainelMC extends javax.swing.JPanel {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 11)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Developed By Vithor Roder");
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel6MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel6MouseExited(evt);
             }
         });
 
@@ -133,6 +114,7 @@ public class PainelMC extends javax.swing.JPanel {
         jLabel9.setText("Total Venda");
 
         jTextFieldVenda.setEditable(false);
+        jTextFieldVenda.setBackground(new java.awt.Color(70, 73, 75));
         jTextFieldVenda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextFieldVenda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldVenda.setBorder(null);
@@ -168,7 +150,7 @@ public class PainelMC extends javax.swing.JPanel {
         jComboBoxSegmento.setBackground(new java.awt.Color(153, 153, 153));
         jComboBoxSegmento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jComboBoxSegmento.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxSegmento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cartão de Visita 250g", "Cartão Verniz Localizado 300g", "Panfletos 70g", "Panfletos 90g", "Panfletos 115g", "Panfletos 150g", "Revistas", "Pastas", "Ventarolas", "Calendários" }));
+        jComboBoxSegmento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cartão de Visita 250g", "Cartão Verniz Localizado 300g", "Panfletos 70g", "Panfletos 90g", "Panfletos 115g", "Panfletos 150g" }));
         jComboBoxSegmento.setSelectedIndex(-1);
         jComboBoxSegmento.setFocusable(false);
         jComboBoxSegmento.addItemListener(new java.awt.event.ItemListener() {
@@ -217,106 +199,105 @@ public class PainelMC extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxProdutos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBoxSegmento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(jTextFieldPorcentagem, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(jComboBoxAcabamento, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabelValorMinimo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPorcentagem, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBoxQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 444, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addGap(509, 509, 509)
-                        .addComponent(jButton2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 935, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabelValorMinimo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(8, 8, 8))))
+                    .addComponent(jComboBoxSegmento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxProdutos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1349, Short.MAX_VALUE)))
+                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabelPhoenix, javax.swing.GroupLayout.DEFAULT_SIZE, 1355, Short.MAX_VALUE))
+                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1360, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxSegmento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBoxAcabamento, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPorcentagem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxSegmento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelValorMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxAcabamento, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldPorcentagem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)))))
+                        .addComponent(jLabelValorMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(620, Short.MAX_VALUE)))
+                    .addGap(0, 631, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabelPhoenix, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE))
+                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE))
         );
 
-        add(jPanel1);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -327,30 +308,19 @@ public class PainelMC extends javax.swing.JPanel {
         clearAll();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        try {
-            Desktop.getDesktop().browse(new URI("https://www.phoenixgrafica.com"));
-        } catch (IOException | URISyntaxException ex) {
-            ex.printStackTrace();
-        }
-    }//GEN-LAST:event_jLabel6MouseClicked
-
-    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
-        jLabel6.setForeground(Color.BLUE);
-    }//GEN-LAST:event_jLabel6MouseEntered
-
-    private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
-        jLabel6.setForeground(Color.WHITE);
-    }//GEN-LAST:event_jLabel6MouseExited
-
     private void jTextFieldPorcentagemFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPorcentagemFocusGained
         jTextFieldVenda.setText("");
     }//GEN-LAST:event_jTextFieldPorcentagemFocusGained
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        double resultado = calcularValorFinal();
-        if (resultado != 0.0) {
-            jTextFieldVenda.setText(String.format("%.2f", resultado));
+        try {
+            NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+            double resultado = calcularValorFinal();
+            if (resultado != 0.0) {
+                jTextFieldVenda.setText(formatoMoeda.format(resultado));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro Fatal !", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -398,12 +368,11 @@ public class PainelMC extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelPhoenix;
     private javax.swing.JLabel jLabelValorMinimo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldPorcentagem;
@@ -505,7 +474,7 @@ public class PainelMC extends javax.swing.JPanel {
         }
 
         if (porcentagem < 50 || porcentagem > 100) {
-            JOptionPane.showMessageDialog(null, "Porcentagem deve estar entre 50 e 100.");
+            JOptionPane.showMessageDialog(this, "Você deve digitar a porcentagem com valores entre 50 e 100!", "Aviso", JOptionPane.WARNING_MESSAGE);
             return 0.0; // Retorna 0 se a porcentagem estiver fora do intervalo desejado
         }
 
@@ -530,11 +499,39 @@ public class PainelMC extends javax.swing.JPanel {
                     jComboBoxProdutos.addItem("9x10cm 4/0");
                     jComboBoxProdutos.addItem("9x10cm 4/1");
                     jComboBoxProdutos.addItem("9x10cm 4/4");
+                    jComboBoxProdutos.addItem("9x15cm 4/0");
+                    jComboBoxProdutos.addItem("9x15cm 4/1");
+                    jComboBoxProdutos.addItem("9x15cm 4/4");
+                    jComboBoxProdutos.addItem("18x10cm 4/0");
+                    jComboBoxProdutos.addItem("18x10cm 4/1");
+                    jComboBoxProdutos.addItem("18x10cm 4/4");
+                    jComboBoxProdutos.addItem("18x15cm 4/0");
+                    jComboBoxProdutos.addItem("18x15cm 4/1");
+                    jComboBoxProdutos.addItem("18x15cm 4/4");
+                    jComboBoxProdutos.addItem("18x5cm 4/0");
+                    jComboBoxProdutos.addItem("18x5cm 4/1");
+                    jComboBoxProdutos.addItem("18x5cm 4/4");
+                    jComboBoxProdutos.addItem("9x20cm 4/0");
+                    jComboBoxProdutos.addItem("9x20cm 4/1");
+                    jComboBoxProdutos.addItem("9x20cm 4/4");
+                    jComboBoxProdutos.addItem("27x20cm 4/0");
+                    jComboBoxProdutos.addItem("27x20cm 4/1");
+                    jComboBoxProdutos.addItem("27x20cm 4/4");
+                    jComboBoxProdutos.addItem("27x40cm 4/0");
+                    jComboBoxProdutos.addItem("27x40cm 4/1");
+                    jComboBoxProdutos.addItem("27x40cm 4/4");
                     break;
                 case "Cartão Verniz Localizado 300g":
                     jComboBoxProdutos.addItem("9x5cm 4/4");
                     jComboBoxProdutos.addItem("9x10cm 4/4");
                     jComboBoxProdutos.addItem("18x5cm 4/4");
+                    jComboBoxProdutos.addItem("9x15cm 4/4");
+                    jComboBoxProdutos.addItem("18x10cm 4/4");
+                    jComboBoxProdutos.addItem("9x20cm 4/4");
+                    jComboBoxProdutos.addItem("18x15cm 4/4");
+                    jComboBoxProdutos.addItem("27x15cm 4/4");
+                    jComboBoxProdutos.addItem("20x27cm 4/4");
+                    jComboBoxProdutos.addItem("27x40cm 4/4");
                     break;
                 case "Panfletos 70g":
                     jComboBoxProdutos.addItem("10x14cm 4/0");
@@ -591,18 +588,6 @@ public class PainelMC extends javax.swing.JPanel {
                     jComboBoxProdutos.addItem("9x20cm 4/4");
                     jComboBoxProdutos.addItem("18x20cm 4/0");
                     jComboBoxProdutos.addItem("18x20cm 4/4");
-                    break;
-                case "Revistas":
-                    // jComboBoxProdutos.addItem("");
-                    break;
-                case "Pastas":
-                    //  jComboBoxProdutos.addItem("");
-                    break;
-                case "Ventarolas":
-                    // jComboBoxProdutos.addItem("");
-                    break;
-                case "Calendários":
-                    // jComboBoxProdutos.addItem("");
                     break;
                 default:
                     break;
@@ -728,6 +713,225 @@ public class PainelMC extends javax.swing.JPanel {
                     jComboBoxQuantidade.addItem("9.000");
                     jComboBoxQuantidade.addItem("10.000");
                     break;
+                case "9x15cm 4/0":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    jComboBoxQuantidade.addItem("6.000");
+                    jComboBoxQuantidade.addItem("7.000");
+                    jComboBoxQuantidade.addItem("8.000");
+                    jComboBoxQuantidade.addItem("9.000");
+                    jComboBoxQuantidade.addItem("10.000");
+                    break;
+                case "9x15cm 4/1":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    jComboBoxQuantidade.addItem("6.000");
+                    jComboBoxQuantidade.addItem("7.000");
+                    jComboBoxQuantidade.addItem("8.000");
+                    jComboBoxQuantidade.addItem("9.000");
+                    jComboBoxQuantidade.addItem("10.000");
+                    break;
+                case "9x15cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    jComboBoxQuantidade.addItem("6.000");
+                    jComboBoxQuantidade.addItem("7.000");
+                    jComboBoxQuantidade.addItem("8.000");
+                    jComboBoxQuantidade.addItem("9.000");
+                    jComboBoxQuantidade.addItem("10.000");
+                    break;
+                case "18x10cm 4/0":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "18x10cm 4/1":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "18x10cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "18x15cm 4/0":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "18x15cm 4/1":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "18x15cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "18x5cm 4/0":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    jComboBoxQuantidade.addItem("6.000");
+                    jComboBoxQuantidade.addItem("7.000");
+                    jComboBoxQuantidade.addItem("8.000");
+                    jComboBoxQuantidade.addItem("9.000");
+                    jComboBoxQuantidade.addItem("10.000");
+                    break;
+                case "18x5cm 4/1":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    jComboBoxQuantidade.addItem("6.000");
+                    jComboBoxQuantidade.addItem("7.000");
+                    jComboBoxQuantidade.addItem("8.000");
+                    jComboBoxQuantidade.addItem("9.000");
+                    jComboBoxQuantidade.addItem("10.000");
+                    break;
+                case "18x5cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    jComboBoxQuantidade.addItem("6.000");
+                    jComboBoxQuantidade.addItem("7.000");
+                    jComboBoxQuantidade.addItem("8.000");
+                    jComboBoxQuantidade.addItem("9.000");
+                    jComboBoxQuantidade.addItem("10.000");
+                    break;
+                case "9x20cm 4/0":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "9x20cm 4/1":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "9x20cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "27x20cm 4/0":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "27x20cm 4/1":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "27x20cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "27x40cm 4/0":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "27x40cm 4/1":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "27x40cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
             }
 
         }
@@ -753,7 +957,6 @@ public class PainelMC extends javax.swing.JPanel {
                     jComboBoxQuantidade.addItem("8.000");
                     jComboBoxQuantidade.addItem("9.000");
                     jComboBoxQuantidade.addItem("10.000");
-
                     break;
                 case "9x10cm 4/4":
                     addAcabamentosVincoECorteExtra();
@@ -763,7 +966,6 @@ public class PainelMC extends javax.swing.JPanel {
                     jComboBoxQuantidade.addItem("3.000");
                     jComboBoxQuantidade.addItem("4.000");
                     jComboBoxQuantidade.addItem("5.000");
-
                     break;
                 case "18x5cm 4/4":
                     addAcabamentosVincoECorteExtra();
@@ -773,7 +975,66 @@ public class PainelMC extends javax.swing.JPanel {
                     jComboBoxQuantidade.addItem("3.000");
                     jComboBoxQuantidade.addItem("4.000");
                     jComboBoxQuantidade.addItem("5.000");
-
+                    break;
+                case "9x15cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "18x10cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "9x20cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "18x15cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "27x15cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "20x27cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
+                    jComboBoxQuantidade.addItem("3.000");
+                    jComboBoxQuantidade.addItem("4.000");
+                    jComboBoxQuantidade.addItem("5.000");
+                    break;
+                case "27x40cm 4/4":
+                    addAcabamentosVincoECorteExtra();
+                    jComboBoxQuantidade.addItem(null);
+                    jComboBoxQuantidade.addItem("1.000");
+                    jComboBoxQuantidade.addItem("2.000");
                     break;
             }
 
@@ -1552,6 +1813,453 @@ public class PainelMC extends javax.swing.JPanel {
             jTextFieldTotal.setText(String.valueOf(800.0 + valorAcabamentoM * quantidade / 1000));
         }
 
+        ///// Cartão 250g 9x15cm 4/0 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(114.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(228.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(342.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(456.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(570.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "6.000") {
+            jTextFieldTotal.setText(String.valueOf(684.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "7.000") {
+            jTextFieldTotal.setText(String.valueOf(798.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "8.000") {
+            jTextFieldTotal.setText(String.valueOf(912.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "9.000") {
+            jTextFieldTotal.setText(String.valueOf(1026.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/0" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(1140.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 9x15cm 4/1 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(120.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(240.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(360.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(600.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "6.000") {
+            jTextFieldTotal.setText(String.valueOf(720.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "7.000") {
+            jTextFieldTotal.setText(String.valueOf(840.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "8.000") {
+            jTextFieldTotal.setText(String.valueOf(960.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "9.000") {
+            jTextFieldTotal.setText(String.valueOf(1080.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/1" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(1200.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 9x15cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(120.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(240.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(360.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(600.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "6.000") {
+            jTextFieldTotal.setText(String.valueOf(720.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "7.000") {
+            jTextFieldTotal.setText(String.valueOf(840.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "8.000") {
+            jTextFieldTotal.setText(String.valueOf(960.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "9.000") {
+            jTextFieldTotal.setText(String.valueOf(1080.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(1200.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 18x10cm 4/0 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/0" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(152.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/0" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(304.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/0" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(456.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/0" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(608.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/0" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(760.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 18x10cm 4/1 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/1" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(160.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/1" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(320.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/1" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/1" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(640.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/1" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 18x10cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(160.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(320.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(640.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 18x15cm 4/0 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/0" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(228.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/0" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(456.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/0" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(684.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/0" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(912.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/0" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(1140.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 18x15cm 4/1 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/1" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(240.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/1" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/1" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(720.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/1" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(960.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/1" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(1200.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 18x15cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(240.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(720.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(960.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(1200.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 18x5cm 4/0 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(76.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(152.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(228.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(304.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(380.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "6.000") {
+            jTextFieldTotal.setText(String.valueOf(456.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "7.000") {
+            jTextFieldTotal.setText(String.valueOf(532.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "8.000") {
+            jTextFieldTotal.setText(String.valueOf(608.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "9.000") {
+            jTextFieldTotal.setText(String.valueOf(684.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/0" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(760.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 18x5cm 4/1 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(80.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(160.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(240.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(320.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(400.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "6.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "7.000") {
+            jTextFieldTotal.setText(String.valueOf(560.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "8.000") {
+            jTextFieldTotal.setText(String.valueOf(640.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "9.000") {
+            jTextFieldTotal.setText(String.valueOf(720.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/1" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 18x5cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(80.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(160.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(240.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(320.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(400.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "6.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "7.000") {
+            jTextFieldTotal.setText(String.valueOf(560.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "8.000") {
+            jTextFieldTotal.setText(String.valueOf(640.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "9.000") {
+            jTextFieldTotal.setText(String.valueOf(720.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 9x20cm 4/0 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(152.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(304.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(456.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(608.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(760.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 9x20cm 4/1 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/1" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(160.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/1" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(320.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/1" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/1" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(640.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/1" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 9x20cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(160.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(320.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(640.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 27x20cm 4/0 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/0" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(456.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/0" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(912.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/0" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(1368.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/0" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(1824.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/0" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(2280.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 27x20cm 4/1 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/1" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/1" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(960.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/1" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(1440.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/1" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(1920.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/1" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(2400.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 27x20cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(480.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(960.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(1440.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(1920.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x20cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(2400.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 27x40cm 4/0 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/0" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(912.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/0" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(1824.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/0" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(2736.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/0" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(3648.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/0" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(4560.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 27x40cm 4/1 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/1" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(960.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/1" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(1920.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/1" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(2880.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/1" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(3840.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/1" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(4800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 250g 27x40cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(960.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(1920.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(2880.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(3840.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão de Visita 250g" && itemSelecionado == "27x40cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(4800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
         ///// Cartão 300g 9x5cm 4/4 ///////////////////////////////////////////////////
         if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x5cm 4/4" && itemSelecionadoQuant == "1.000") {
             jTextFieldTotal.setText(String.valueOf(90.0 + valorAcabamentoM * quantidade / 1000));
@@ -1616,6 +2324,116 @@ public class PainelMC extends javax.swing.JPanel {
 
         } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x5cm 4/4" && itemSelecionadoQuant == "5.000") {
             jTextFieldTotal.setText(String.valueOf(900.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 300g 9x15cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(270.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(540.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(810.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(1080.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x15cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(1350.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 300g 18x10cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(360.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(720.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(1080.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(1440.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x10cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(1800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 300g 9x20cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(360.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(720.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(1080.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(1440.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(1800.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 300g 18x15cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(540.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(1080.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(1620.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(2160.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "18x15cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(2700.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 300g 27x15cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "27x15cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(810.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "27x15cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(1620.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "27x15cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(2430.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "27x15cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(3240.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "27x15cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(4050.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 300g 20x27cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "20x27cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(1080.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "20x27cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(2160.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "20x27cm 4/4" && itemSelecionadoQuant == "3.000") {
+            jTextFieldTotal.setText(String.valueOf(3240.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "20x27cm 4/4" && itemSelecionadoQuant == "4.000") {
+            jTextFieldTotal.setText(String.valueOf(4320.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "20x27cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(5400.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Cartão 300g 27x40cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "27x40cm 4/4" && itemSelecionadoQuant == "1.000") {
+            jTextFieldTotal.setText(String.valueOf(2160.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Cartão Verniz Localizado 300g" && itemSelecionado == "27x40cm 4/4" && itemSelecionadoQuant == "2.000") {
+            jTextFieldTotal.setText(String.valueOf(4320.0 + valorAcabamentoM * quantidade / 1000));
         }
 
         ///// Panfletos 70g 10x14cm 4/0 ///////////////////////////////////////////////////
