@@ -1,7 +1,6 @@
 package mt2converter;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -579,6 +578,54 @@ public class PainelM2 extends javax.swing.JPanel {
                     jTextFieldMt2.setText("34,00");
                     clearAll2();
                     break;
+                case "Lona c Bainha e ilhós - BackLigth -  Impressão Solvente - 4/0 - 380g":
+                    jTextFieldMt2.setText("33,00");
+                    clearAll2();
+                    break;
+                case "Lona c Bainha e ilhós - BackLigth -  Impressão UV - 4/0 - 380g":
+                    jTextFieldMt2.setText("36,00");
+                    clearAll2();
+                    break;
+                case "Lona c Bainha e ilhós - Ortofônica Sanet -  Impressão Solvente - 4/0 - 260g":
+                    jTextFieldMt2.setText("50,00");
+                    clearAll2();
+                    break;
+                case "Lona c Bainha e ilhós - Ortofônica Sanet -  Impressão UV - 4/0 - 260g":
+                    jTextFieldMt2.setText("50,00");
+                    clearAll2();
+                    break;
+                case "Lona c Bainha + Corda + ilhós - Brilho -  Impressão Solvente - 4/0 - 440g":
+                    jTextFieldMt2.setText("34,00");
+                    clearAll2();
+                    break;
+                case "Lona c Bainha + Corda + ilhós - Fosco -  Impressão Solvente - 4/0 - 440g":
+                    jTextFieldMt2.setText("34,00");
+                    clearAll2();
+                    break;
+                case "Lona c Bainha + Corda + ilhós - Brilho -  Impressão UV - 4/0 - 440g":
+                    jTextFieldMt2.setText("37,00");
+                    clearAll2();
+                    break;
+                case "Lona c Bainha + Corda + ilhós - Fosco -  Impressão UV - 4/0 - 440g":
+                    jTextFieldMt2.setText("37,00");
+                    clearAll2();
+                    break;
+                case "Lona Frente e Verso Acoplada + Bainha e ilhós - Brilho -  Impressão Solvente - 4/4 - 440g":
+                    jTextFieldMt2.setText("67,01");
+                    clearAll2();
+                    break;
+                case "Lona Frente e Verso Acoplada + Bainha e ilhós - Fosco -  Impressão Solvente - 4/4 - 440g":
+                    jTextFieldMt2.setText("67,01");
+                    clearAll2();
+                    break;
+                case "Lona Frente e Verso Acoplada + Bainha e ilhós - Brilho -  Impressão UV - 4/4 - 440g":
+                    jTextFieldMt2.setText("67,01");
+                    clearAll2();
+                    break;
+                case "Lona Frente e Verso Acoplada + Bainha e ilhós - Fosco -  Impressão UV - 4/4 - 440g":
+                    jTextFieldMt2.setText("67,01");
+                    clearAll2();
+                    break;
 
             }
         }
@@ -620,22 +667,165 @@ public class PainelM2 extends javax.swing.JPanel {
                     jTextFieldMt2.setText("45,00");
                     clearAll2();
                     break;
-                case "Adesivo + Branco - Brilho - Impressão UV - 5/0 + Recorte Especial":
-                    jTextFieldMt2.setText("57,00");
+                case "Adesivo - Blackout Brilho -  Impressão Solvente - 4/0 - GF":
+                    jTextFieldMt2.setText("35,00");
                     clearAll2();
                     break;
-                case "Adesivo + Branco - Fosco - Impressão UV - 5/0 + Recorte Especial":
-                    jTextFieldMt2.setText("57,00");
+                case "Adesivo - Blackout Brilho -  Impressão Solvente - 4/0 - PF":
+                    jTextFieldMt2.setText("37,00");
                     clearAll2();
                     break;
-                case "Adesivo + Branco - Brilho - Impressão UV - 5/0":
+                case "Adesivo - Blackout Brilho -  Impressão Solvente - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("50,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Blackout Brilho -  Impressão Solvente - 4/0 - PF + Recorte Especial":
+                    jTextFieldMt2.setText("52,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Blackout Fosco -  Impressão Solvente - 4/0 - GF":
+                    jTextFieldMt2.setText("35,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Blackout Fosco -  Impressão Solvente - 4/0 - PF":
+                    jTextFieldMt2.setText("37,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Blackout Fosco -  Impressão Solvente - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("50,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Blackout Fosco -  Impressão Solvente - 4/0 - PF + Recorte Especial":
+                    jTextFieldMt2.setText("52,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Brilho -  Impressão Solvente - 4/0 - GF":
+                    jTextFieldMt2.setText("30,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Brilho -  Impressão Solvente - 4/0 - PF":
+                    jTextFieldMt2.setText("32,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Brilho -  Impressão Solvente - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("42,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Brilho -  Impressão Solvente - 4/0 - PF + Recorte Especial":
+                    jTextFieldMt2.setText("42,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Fosco -  Impressão Solvente - 4/0 - GF":
+                    jTextFieldMt2.setText("30,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Fosco -  Impressão Solvente - 4/0 - PF":
+                    jTextFieldMt2.setText("32,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Fosco -  Impressão Solvente - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("42,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Fosco -  Impressão Solvente - 4/0 - PF + Recorte Especial":
+                    jTextFieldMt2.setText("42,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - MicroPerfurado -  Impressão Solvente - 4/0 - GF":
+                    jTextFieldMt2.setText("42,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Jateado -  Impressão Solvente - 4/0 - GF":
+                    jTextFieldMt2.setText("35,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Jateado -  Impressão Solvente - 4/0 - GF + Recorte Especial":
                     jTextFieldMt2.setText("45,00");
                     clearAll2();
                     break;
-                case "Adesivo + Branco - Fosco - Impressão UV - 5/0":
+                case "Adesivo - Brilho -  Impressão UV - 4/0 - GF":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Brilho -  Impressão UV - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("43,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Fosco -  Impressão UV - 4/0 - GF":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Fosco -  Impressão UV - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("43,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Blackout Brilho -  Impressão UV - 4/0 - GF":
+                    jTextFieldMt2.setText("38,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Blackout Brilho -  Impressão UV - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("53,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Blackout Fosco -  Impressão UV - 4/0 - GF":
+                    jTextFieldMt2.setText("38,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Blackout Fosco -  Impressão UV - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("53,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Brilho -  Impressão UV - 4/0 - GF":
+                    jTextFieldMt2.setText("33,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Brilho -  Impressão UV - 4/0 - GF + Recorte Especial":
                     jTextFieldMt2.setText("45,00");
                     clearAll2();
                     break;
+                case "Adesivo - Transparente Fosco -  Impressão UV - 4/0 - GF":
+                    jTextFieldMt2.setText("33,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Transparente Fosco -  Impressão UV - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("45,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - MicroPerfurado -  Impressão UV - 4/0 - GF":
+                    jTextFieldMt2.setText("42,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Jateado -  Impressão UV - 4/0 - GF":
+                    jTextFieldMt2.setText("40,00");
+                    clearAll2();
+                    break;
+                case "Adesivo - Jateado -  Impressão UV - 4/0 - GF + Recorte Especial":
+                    jTextFieldMt2.setText("45,00");
+                    clearAll2();
+                    break;
+
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                case "Adesivo + Branco - Transparente Brilho - Impressão UV - 5/0":
+                    jTextFieldMt2.setText("45,00");
+                    clearAll2();
+                    break;
+                case "Adesivo + Branco - Transparente Fosco - Impressão UV - 5/0":
+                    jTextFieldMt2.setText("45,00");
+                    clearAll2();
+                    break;
+                case "Adesivo + Branco - Transparente Brilho - Impressão UV - 5/0 + Recorte Especial":
+                    jTextFieldMt2.setText("57,00");
+                    clearAll2();
+                    break;
+                case "Adesivo + Branco - Transparente Fosco - Impressão UV - 5/0 + Recorte Especial":
+                    jTextFieldMt2.setText("57,00");
+                    clearAll2();
+                    break;
+                case "Adesivo + Branco - Jateado - Impressão UV - 5/0 + Recorte Especial":
+                    jTextFieldMt2.setText("90,00");
+                    clearAll2();
+                    break;
+
                 default:
                     jTextFieldMt2.setText("");
                     jTextFieldMt2.setEditable(true);
@@ -686,6 +876,18 @@ public class PainelM2 extends javax.swing.JPanel {
                     jComboBoxProdutos.addItem("Lona c Bainha e ilhós - Fosca -  Impressão UV - 4/0 - 280g");
                     jComboBoxProdutos.addItem("Lona c Bainha e ilhós - Fosca -  Impressão UV - 4/0 - 380g");
                     jComboBoxProdutos.addItem("Lona c Bainha e ilhós - Fosca -  Impressão UV - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Lona c Bainha e ilhós - BackLigth -  Impressão Solvente - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Lona c Bainha e ilhós - BackLigth -  Impressão UV - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Lona c Bainha e ilhós - Ortofônica Sanet -  Impressão Solvente - 4/0 - 260g");
+                    jComboBoxProdutos.addItem("Lona c Bainha e ilhós - Ortofônica Sanet -  Impressão UV - 4/0 - 260g");
+                    jComboBoxProdutos.addItem("Lona c Bainha + Corda + ilhós - Brilho -  Impressão Solvente - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Lona c Bainha + Corda + ilhós - Fosco -  Impressão Solvente - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Lona c Bainha + Corda + ilhós - Brilho -  Impressão UV - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Lona c Bainha + Corda + ilhós - Fosco -  Impressão UV - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Lona Frente e Verso Acoplada + Bainha e ilhós - Brilho -  Impressão Solvente - 4/4 - 440g");
+                    jComboBoxProdutos.addItem("Lona Frente e Verso Acoplada + Bainha e ilhós - Fosco -  Impressão Solvente - 4/4 - 440g");
+                    jComboBoxProdutos.addItem("Lona Frente e Verso Acoplada + Bainha e ilhós - Brilho -  Impressão UV - 4/4 - 440g");
+                    jComboBoxProdutos.addItem("Lona Frente e Verso Acoplada + Bainha e ilhós - Fosco -  Impressão UV - 4/4 - 440g");
                     // Adicione outros produtos para o segmento M2 conforme necessário
                     break;
                 case "Adesivos":
@@ -697,10 +899,47 @@ public class PainelM2 extends javax.swing.JPanel {
                     jComboBoxProdutos.addItem("Adesivo - Fosco -  Impressão Solvente - 4/0 - PF");
                     jComboBoxProdutos.addItem("Adesivo - Fosco -  Impressão Solvente - 4/0 - GF + Recorte Especial");
                     jComboBoxProdutos.addItem("Adesivo - Fosco -  Impressão Solvente - 4/0 - PF + Recorte Especial");
-                    jComboBoxProdutos.addItem("Adesivo + Branco - Brilho - Impressão UV - 5/0");
-                    jComboBoxProdutos.addItem("Adesivo + Branco - Fosco - Impressão UV - 5/0");
-                    jComboBoxProdutos.addItem("Adesivo + Branco - Brilho - Impressão UV - 5/0 + Recorte Especial");
-                    jComboBoxProdutos.addItem("Adesivo + Branco - Fosco - Impressão UV - 5/0 + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Brilho -  Impressão Solvente - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Brilho -  Impressão Solvente - 4/0 - PF");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Brilho -  Impressão Solvente - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Brilho -  Impressão Solvente - 4/0 - PF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Fosco -  Impressão Solvente - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Fosco -  Impressão Solvente - 4/0 - PF");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Fosco -  Impressão Solvente - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Fosco -  Impressão Solvente - 4/0 - PF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Brilho -  Impressão Solvente - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Brilho -  Impressão Solvente - 4/0 - PF");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Brilho -  Impressão Solvente - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Brilho -  Impressão Solvente - 4/0 - PF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Fosco -  Impressão Solvente - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Fosco -  Impressão Solvente - 4/0 - PF");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Fosco -  Impressão Solvente - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Fosco -  Impressão Solvente - 4/0 - PF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - MicroPerfurado -  Impressão Solvente - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Jateado -  Impressão Solvente - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Jateado -  Impressão Solvente - 4/0 - GF + Recorte Especial");
+
+                    jComboBoxProdutos.addItem("Adesivo - Brilho -  Impressão UV - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Brilho -  Impressão UV - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Fosco -  Impressão UV - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Fosco -  Impressão UV - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Brilho -  Impressão UV - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Brilho -  Impressão UV - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Fosco -  Impressão UV - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Blackout Fosco -  Impressão UV - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Brilho -  Impressão UV - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Brilho -  Impressão UV - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Fosco -  Impressão UV - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Transparente Fosco -  Impressão UV - 4/0 - GF + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo - MicroPerfurado -  Impressão UV - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Jateado -  Impressão UV - 4/0 - GF");
+                    jComboBoxProdutos.addItem("Adesivo - Jateado -  Impressão UV - 4/0 - GF + Recorte Especial");
+
+                    jComboBoxProdutos.addItem("Adesivo + Branco - Transparente Brilho - Impressão UV - 5/0");
+                    jComboBoxProdutos.addItem("Adesivo + Branco - Transparente Fosco - Impressão UV - 5/0");
+                    jComboBoxProdutos.addItem("Adesivo + Branco - Transparente Brilho - Impressão UV - 5/0 + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo + Branco - Transparente Fosco - Impressão UV - 5/0 + Recorte Especial");
+                    jComboBoxProdutos.addItem("Adesivo + Branco - Jateado - Impressão UV - 5/0 + Recorte Especial");
                     // Adicione outros produtos para o segmento MC conforme necessário
                     break;
                 case "Banner":
