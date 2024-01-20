@@ -13,9 +13,10 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
 
     public FramePhoenixConverter() {
         initComponents();
+        setOpacity(0.98f);
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/png/convert.png"));
         setIconImage(icon);
-        setTitle("Conversor Phoenix");      
+        setTitle("Conversor Phoenix");
         Container container = getContentPane();
         container.setLayout(new BorderLayout());
         container.add(new PainelPrincipal(), BorderLayout.CENTER);
@@ -45,13 +46,14 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1360, 700));
+        setUndecorated(true);
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGap(0, 1247, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

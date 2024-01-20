@@ -2,11 +2,14 @@ package mt2converter;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 public class PainelPrincipal extends javax.swing.JPanel {
 
     public PainelPrincipal() {
         initComponents();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -14,9 +17,12 @@ public class PainelPrincipal extends javax.swing.JPanel {
     private void initComponents() {
 
         painelPrincipal = new keeptoo.KGradientPanel();
+        jLabel6 = new javax.swing.JLabel();
         jButtonM2 = new javax.swing.JButton();
         jButtonMC = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        painelFecharEMinimizar = new javax.swing.JPanel();
+        botMinimizar = new javax.swing.JButton();
+        botFechar = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(700, 500));
         setPreferredSize(new java.awt.Dimension(700, 500));
@@ -24,14 +30,10 @@ public class PainelPrincipal extends javax.swing.JPanel {
         painelPrincipal.setkEndColor(new java.awt.Color(204, 0, 0));
         painelPrincipal.setkGradientFocus(1500);
         painelPrincipal.setkStartColor(new java.awt.Color(0, 0, 250));
-        painelPrincipal.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                painelPrincipalComponentAdded(evt);
-            }
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                painelPrincipalComponentRemoved(evt);
-            }
-        });
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/phoenix.png"))); // NOI18N
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButtonM2.setBackground(new java.awt.Color(51, 153, 255));
         jButtonM2.setFont(new java.awt.Font("Calibri", 0, 80)); // NOI18N
@@ -59,9 +61,43 @@ public class PainelPrincipal extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/phoenix.png"))); // NOI18N
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        painelFecharEMinimizar.setOpaque(false);
+
+        botMinimizar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        botMinimizar.setText("-");
+        botMinimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botMinimizarActionPerformed(evt);
+            }
+        });
+
+        botFechar.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        botFechar.setText("X");
+        botFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botFecharActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout painelFecharEMinimizarLayout = new javax.swing.GroupLayout(painelFecharEMinimizar);
+        painelFecharEMinimizar.setLayout(painelFecharEMinimizarLayout);
+        painelFecharEMinimizarLayout.setHorizontalGroup(
+            painelFecharEMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelFecharEMinimizarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        painelFecharEMinimizarLayout.setVerticalGroup(
+            painelFecharEMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelFecharEMinimizarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(painelFecharEMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botMinimizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botFechar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         javax.swing.GroupLayout painelPrincipalLayout = new javax.swing.GroupLayout(painelPrincipal);
         painelPrincipal.setLayout(painelPrincipalLayout);
@@ -70,18 +106,22 @@ public class PainelPrincipal extends javax.swing.JPanel {
             .addGroup(painelPrincipalLayout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addComponent(jButtonM2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 778, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 620, Short.MAX_VALUE)
                 .addComponent(jButtonMC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
+                .addGap(56, 56, 56)
+                .addComponent(painelFecharEMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1442, Short.MAX_VALUE))
+                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1311, Short.MAX_VALUE))
         );
         painelPrincipalLayout.setVerticalGroup(
             painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButtonM2, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+            .addComponent(jButtonM2, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
             .addComponent(jButtonMC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(painelPrincipalLayout.createSequentialGroup()
+                .addComponent(painelFecharEMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE))
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -97,8 +137,7 @@ public class PainelPrincipal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonM2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonM2ActionPerformed
-        painelPrincipal.setVisible(false);
-        Container container = this.getParent();      
+        Container container = this.getParent();
         container.removeAll();
         container.add(new PainelM2(), BorderLayout.CENTER);
         container.revalidate();
@@ -106,7 +145,6 @@ public class PainelPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonM2ActionPerformed
 
     private void jButtonMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMCActionPerformed
-        painelPrincipal.setVisible(false);
         Container container = this.getParent();
         container.removeAll();
         container.add(new PainelMC(), BorderLayout.CENTER);
@@ -114,19 +152,26 @@ public class PainelPrincipal extends javax.swing.JPanel {
         container.repaint();
     }//GEN-LAST:event_jButtonMCActionPerformed
 
-    private void painelPrincipalComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_painelPrincipalComponentAdded
+    private void botMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botMinimizarActionPerformed
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        frame.setExtendedState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_botMinimizarActionPerformed
 
-    }//GEN-LAST:event_painelPrincipalComponentAdded
-
-    private void painelPrincipalComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_painelPrincipalComponentRemoved
-       
-    }//GEN-LAST:event_painelPrincipalComponentRemoved
+    private void botFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botFecharActionPerformed
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        frame.dispose();
+        System.exit(0);
+    }//GEN-LAST:event_botFecharActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton botFechar;
+    public static javax.swing.JButton botMinimizar;
     private javax.swing.JButton jButtonM2;
     private javax.swing.JButton jButtonMC;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
+    public static javax.swing.JPanel painelFecharEMinimizar;
     private keeptoo.KGradientPanel painelPrincipal;
     // End of variables declaration//GEN-END:variables
+
 }
