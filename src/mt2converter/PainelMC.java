@@ -1,7 +1,6 @@
 package mt2converter;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -3492,7 +3491,83 @@ public class PainelMC extends javax.swing.JPanel {
 
         } else if (itemS == "Panfletos 150g" && itemSelecionado == "28x40cm 4/4" && itemSelecionadoQuant == "10.000") {
             jTextFieldTotal.setText(String.valueOf(4320.0 + valorAcabamentoM * quantidade / 1000));
+        }
 
+        ///// Panfletos 150g 9x20cm 4/0 ///////////////////////////////////////////////////
+        if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "2.500") {
+            jTextFieldTotal.setText(String.valueOf(232.5 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(345.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(690.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "15.000") {
+            jTextFieldTotal.setText(String.valueOf(1035.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "20.000") {
+            jTextFieldTotal.setText(String.valueOf(1380.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/0" && itemSelecionadoQuant == "25.000") {
+            jTextFieldTotal.setText(String.valueOf(1725.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Panfletos 150g 9x20cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "2.500") {
+            jTextFieldTotal.setText(String.valueOf(277.5 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(405.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(810.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "15.000") {
+            jTextFieldTotal.setText(String.valueOf(1215.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "20.000") {
+            jTextFieldTotal.setText(String.valueOf(1620.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "25.000") {
+            jTextFieldTotal.setText(String.valueOf(2025.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "9x20cm 4/4" && itemSelecionadoQuant == "30.000") {
+            jTextFieldTotal.setText(String.valueOf(2430.0 + valorAcabamentoM * quantidade / 1000));
+        }
+
+        ///// Panfletos 150g 18x20cm 4/0 ///////////////////////////////////////////////////
+        if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/0" && itemSelecionadoQuant == "2.500") {
+            jTextFieldTotal.setText(String.valueOf(465.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/0" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(690.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/0" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(1380.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/0" && itemSelecionadoQuant == "15.000") {
+            jTextFieldTotal.setText(String.valueOf(2070.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/0" && itemSelecionadoQuant == "20.000") {
+            jTextFieldTotal.setText(String.valueOf(2760.0 + valorAcabamentoM * quantidade / 1000));
+        }
+        
+        ///// Panfletos 150g 18x20cm 4/4 ///////////////////////////////////////////////////
+        if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/4" && itemSelecionadoQuant == "2.500") {
+            jTextFieldTotal.setText(String.valueOf(555.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/4" && itemSelecionadoQuant == "5.000") {
+            jTextFieldTotal.setText(String.valueOf(810.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/4" && itemSelecionadoQuant == "10.000") {
+            jTextFieldTotal.setText(String.valueOf(1620.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/4" && itemSelecionadoQuant == "15.000") {
+            jTextFieldTotal.setText(String.valueOf(2430.0 + valorAcabamentoM * quantidade / 1000));
+
+        } else if (itemS == "Panfletos 150g" && itemSelecionado == "18x20cm 4/4" && itemSelecionadoQuant == "20.000") {
+            jTextFieldTotal.setText(String.valueOf(3240.0 + valorAcabamentoM * quantidade / 1000));
         }
     }
 }
