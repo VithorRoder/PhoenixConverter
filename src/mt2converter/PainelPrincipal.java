@@ -48,7 +48,7 @@ public class PainelPrincipal extends javax.swing.JPanel {
             }
         });
 
-        jButtonMC.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonMC.setBackground(new java.awt.Color(255, 51, 153));
         jButtonMC.setFont(new java.awt.Font("Calibri", 0, 80)); // NOI18N
         jButtonMC.setForeground(new java.awt.Color(0, 0, 0));
         jButtonMC.setText("MC");
@@ -65,6 +65,7 @@ public class PainelPrincipal extends javax.swing.JPanel {
 
         botMinimizar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         botMinimizar.setText("-");
+        botMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botMinimizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botMinimizarActionPerformed(evt);
@@ -73,6 +74,7 @@ public class PainelPrincipal extends javax.swing.JPanel {
 
         botFechar.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         botFechar.setText("X");
+        botFechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botFecharActionPerformed(evt);
@@ -84,11 +86,9 @@ public class PainelPrincipal extends javax.swing.JPanel {
         painelFecharEMinimizarLayout.setHorizontalGroup(
             painelFecharEMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelFecharEMinimizarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(botFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         painelFecharEMinimizarLayout.setVerticalGroup(
             painelFecharEMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,22 +106,24 @@ public class PainelPrincipal extends javax.swing.JPanel {
             .addGroup(painelPrincipalLayout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addComponent(jButtonM2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 620, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 623, Short.MAX_VALUE)
                 .addComponent(jButtonMC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(painelFecharEMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(painelFecharEMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1311, Short.MAX_VALUE))
+                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1314, Short.MAX_VALUE))
         );
         painelPrincipalLayout.setVerticalGroup(
             painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButtonM2, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
             .addComponent(jButtonMC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(painelPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(painelFecharEMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
+                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

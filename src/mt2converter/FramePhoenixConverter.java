@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.RoundRectangle2D;
 
 public class FramePhoenixConverter extends javax.swing.JFrame {
 
@@ -13,30 +14,25 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
 
     public FramePhoenixConverter() {
         initComponents();
-        setOpacity(0.98f);
+
+        // Nível de Opacidade do Frame
+        setOpacity(0.993f);
+
+        // Título e ícone do Frame
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/png/convert.png"));
         setIconImage(icon);
         setTitle("Conversor Phoenix");
+
+        // Adicionando o Container do PanelPrincipal
         Container container = getContentPane();
         container.setLayout(new BorderLayout());
         container.add(new PainelPrincipal(), BorderLayout.CENTER);
 
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                mouseX = e.getX();
-                mouseY = e.getY();
-            }
-        });
+        // Ação do Mouse de clicar e arrastar a Frame
+        mouseListenerFrame();
 
-        addMouseMotionListener(new MouseAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                int x = e.getXOnScreen() - mouseX;
-                int y = e.getYOnScreen() - mouseY;
-                setLocation(x, y);
-            }
-        });
+        // Desenho das Bordas do Frame
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
 
     }
 
@@ -45,6 +41,7 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setMinimumSize(new java.awt.Dimension(1360, 700));
         setUndecorated(true);
         setResizable(false);
@@ -67,4 +64,23 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+    private void mouseListenerFrame() {
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                mouseX = e.getX();
+                mouseY = e.getY();
+            }
+        });
+
+        addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                int x = e.getXOnScreen() - mouseX;
+                int y = e.getYOnScreen() - mouseY;
+                setLocation(x, y);
+            }
+        });
+    }
+
 }

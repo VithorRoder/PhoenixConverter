@@ -51,13 +51,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                   <Component id="jButtonM2" min="-2" pref="200" max="-2" attributes="0"/>
-                  <EmptySpace pref="620" max="32767" attributes="0"/>
+                  <EmptySpace pref="623" max="32767" attributes="0"/>
                   <Component id="jButtonMC" min="-2" pref="200" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="painelFecharEMinimizar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="jLabel6" alignment="1" pref="1311" max="32767" attributes="0"/>
+                  <Component id="jLabel6" alignment="1" pref="1314" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -66,11 +67,12 @@
               <Component id="jButtonM2" pref="603" max="32767" attributes="0"/>
               <Component id="jButtonMC" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="painelFecharEMinimizar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="jLabel6" alignment="0" pref="603" max="32767" attributes="0"/>
+                  <Component id="jLabel6" alignment="1" pref="603" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -112,7 +114,7 @@
         <Component class="javax.swing.JButton" name="jButtonMC">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="ff" type="rgb"/>
+              <Color blue="99" green="33" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="80" style="0"/>
@@ -145,11 +147,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="botMinimizar" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="botMinimizar" pref="41" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="botFechar" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botFechar" min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -172,6 +172,9 @@
                   <Font name="Segoe UI" size="36" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="-"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botMinimizarActionPerformed"/>
@@ -186,6 +189,9 @@
                   <Font name="Segoe UI" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="X"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botFecharActionPerformed"/>
