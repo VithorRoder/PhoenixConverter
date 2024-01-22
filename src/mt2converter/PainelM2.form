@@ -473,16 +473,18 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="4">
                 <StringItem index="0" value="Lonas"/>
                 <StringItem index="1" value="Adesivos"/>
                 <StringItem index="2" value="Banner"/>
+                <StringItem index="3" value="WindBanner"/>
               </StringArray>
             </Property>
             <Property name="selectedIndex" type="int" value="-1"/>
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxSegmentoItemStateChanged"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxSegmentoActionPerformed"/>
           </Events>
           <AuxValues>

@@ -183,9 +183,14 @@ public class PainelM2 extends javax.swing.JPanel {
         jComboBoxSegmento.setBackground(new java.awt.Color(153, 153, 153));
         jComboBoxSegmento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jComboBoxSegmento.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxSegmento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lonas", "Adesivos", "Banner" }));
+        jComboBoxSegmento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lonas", "Adesivos", "Banner", "WindBanner" }));
         jComboBoxSegmento.setSelectedIndex(-1);
         jComboBoxSegmento.setFocusable(false);
+        jComboBoxSegmento.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxSegmentoItemStateChanged(evt);
+            }
+        });
         jComboBoxSegmento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxSegmentoActionPerformed(evt);
@@ -349,7 +354,11 @@ public class PainelM2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextFieldMedidaFocusGained
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        calcularValorTotalMT2();
+        if ("Valor do mt2".equals(jLabel2.getText())) {
+            calcularValorTotalMT2();
+        } else {
+            calcularValorTotalUnitario();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -362,7 +371,13 @@ public class PainelM2 extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (jTextFieldTotal.getText() != null && !jTextFieldTotal.getText().isEmpty()) {
-            CalculaValorVenda();
+            if ("Valor do mt2".equals(jLabel2.getText())) {
+                CalculaValorVenda();
+            } else if ("Valor Unitário".equals(jLabel2.getText())) {
+                CalculaValorVendaUnitario();
+            } else {
+                JOptionPane.showMessageDialog(this, "Tipo de produto não reconhecido.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Valor inválido no campo total custo", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -383,6 +398,10 @@ public class PainelM2 extends javax.swing.JPanel {
         container.revalidate();
         container.repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jComboBoxSegmentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxSegmentoItemStateChanged
+        clearAll3();
+    }//GEN-LAST:event_jComboBoxSegmentoItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -468,6 +487,29 @@ public class PainelM2 extends javax.swing.JPanel {
         }
     }
 
+    private void calcularValorTotalUnitario() {
+        try {
+            double valorUnitario = Double.parseDouble(jTextFieldMt2.getText().replace(",", "."));
+
+            // Verifica se o campo de quantidade não está vazio e não é negativo ou zero
+            if (!jTextFieldQuantidade.getText().isEmpty()) {
+                int quantidade = Integer.parseInt(jTextFieldQuantidade.getText());
+
+                // Verifica se a quantidade é maior que zero
+                if (quantidade > 0) {
+                    double valorTotal = valorUnitario * quantidade;
+                    jTextFieldTotal.setText(formatoMoeda.format(valorTotal));
+                } else {
+                    JOptionPane.showMessageDialog(this, "A quantidade deve ser um valor positivo maior que zero.", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Por favor, insira um valor para a quantidade.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Por favor, insira valores válidos em todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     private double calcularValorTotalVenda(double valorTotal, double porcentagem) {
         return valorTotal + (valorTotal * (porcentagem / 100));
     }
@@ -505,6 +547,24 @@ public class PainelM2 extends javax.swing.JPanel {
         }
     }
 
+    private void CalculaValorVendaUnitario() {
+        try {
+            double valorUnitario = Double.parseDouble(jTextFieldMt2.getText().replace(",", "."));
+            int quantidade = Integer.parseInt(jTextFieldQuantidade.getText());
+
+            // Verifica se a porcentagem está entre 50 e 100
+            double porcentagem = Double.parseDouble(jTextFieldPorcentagem.getText().replace(",", "."));
+            if (porcentagem >= 50 && porcentagem <= 100) {
+                double valorTotalVenda = calcularValorTotalVenda(valorUnitario * quantidade, porcentagem);
+                jTextField2.setText(formatoMoeda.format(valorTotalVenda));
+            } else {
+                JOptionPane.showMessageDialog(this, "Você deve digitar a porcentagem com valores entre 50 e 100!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Por favor, insira valores válidos.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     private void clearAll() {
         jTextFieldMt2.setText("");
         jTextFieldQuantidade.setText("");
@@ -524,6 +584,14 @@ public class PainelM2 extends javax.swing.JPanel {
         jTextFieldTotal.setText("");
         jLabelValorMinimo.setText("");
         jTextField2.setText("");
+    }
+
+    private void clearAll3() {
+        if ("3 mts (Padrão)".equals(jTextFieldMedida.getText()) && !jTextFieldMedida.isEditable() && "Valor Unitário".equals(jLabel2.getText())) {
+            jTextFieldMedida.setEditable(true);
+            jTextFieldMedida.setText("");
+            jLabel2.setText("Valor do mt2");
+        }
     }
 
     private void itemComboBoxValuesLonas() {
@@ -854,6 +922,54 @@ public class PainelM2 extends javax.swing.JPanel {
         }
     }
 
+    private void itemComboBoxValuesWindBanner() {
+
+        Object itemSelecionado = jComboBoxProdutos.getSelectedItem();
+        if (itemSelecionado != null) {
+            jTextFieldMedida.setEditable(false);
+            jTextFieldMedida.setText("3 mts (Padrão)");
+            jLabel2.setText("Valor Unitário");
+            switch (itemSelecionado.toString()) {
+                case "WindBanner Base + Haste - 3mts + Costura - Sublimação - Tecido Oxford - Formato Faca":
+                    jTextFieldMt2.setText("225,00");
+                    clearAll2();
+                    break;
+                case "WindBanner Base + Haste - 3mts + Costura - Sublimação - Tecido Oxford - Formato Gota":
+                    jTextFieldMt2.setText("225,00");
+                    clearAll2();
+                    break;
+                case "WindBanner Base + Haste - 3mts + Costura - Sublimação - Tecido Oxford - Formato Pena":
+                    jTextFieldMt2.setText("225,00");
+                    clearAll2();
+                    break;
+                case "WindBanner Base + Haste - 3mts + Costura - Sublimação - Tecido Oxford - Formato Vela":
+                    jTextFieldMt2.setText("225,00");
+                    clearAll2();
+                    break;
+                case "WindBanner Base Somente Tecido - 3mts + Costura - Sublimação - Tecido Oxford - Formato Faca":
+                    jTextFieldMt2.setText("100,00");
+                    clearAll2();
+                    break;
+                case "WindBanner Base Somente Tecido - 3mts + Costura - Sublimação - Tecido Oxford - Formato Gota":
+                    jTextFieldMt2.setText("100,01");
+                    clearAll2();
+                    break;
+                case "WindBanner Base Somente Tecido - 3mts + Costura - Sublimação - Tecido Oxford - Formato Pena":
+                    jTextFieldMt2.setText("100,01");
+                    clearAll2();
+                    break;
+                case "WindBanner Base Somente Tecido - 3mts + Costura - Sublimação - Tecido Oxford - Formato Vela":
+                    jTextFieldMt2.setText("100,01");
+                    clearAll2();
+                    break;
+                default:
+                    jTextFieldMt2.setText("");
+                    jTextFieldMt2.setEditable(true);
+                    break;
+            }
+        }
+    }
+
     private void updateProdutos() {
         Object selectedSegment = jComboBoxSegmento.getSelectedItem();
 
@@ -945,9 +1061,20 @@ public class PainelM2 extends javax.swing.JPanel {
                 case "Banner":
                     jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão Solvente - 4/0 - 280g");
                     jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão Látex - 4/0 - 280g");
-                // Adicione outros casos para segmentos adicionais, se aplicável
-                default:
+                    // Adicione outros casos para segmentos adicionais, se aplicável
                     break;
+                case "WindBanner":
+                    jComboBoxProdutos.addItem("WindBanner Base + Haste - 3mts + Costura - Sublimação - Tecido Oxford - Formato Faca");//225
+                    jComboBoxProdutos.addItem("WindBanner Base + Haste - 3mts + Costura - Sublimação - Tecido Oxford - Formato Gota");//225
+                    jComboBoxProdutos.addItem("WindBanner Base + Haste - 3mts + Costura - Sublimação - Tecido Oxford - Formato Pena");//225
+                    jComboBoxProdutos.addItem("WindBanner Base + Haste - 3mts + Costura - Sublimação - Tecido Oxford - Formato Vela");//225
+                    jComboBoxProdutos.addItem("WindBanner Base Somente Tecido - 3mts + Costura - Sublimação - Tecido Oxford - Formato Faca");//100
+                    jComboBoxProdutos.addItem("WindBanner Base Somente Tecido - 3mts + Costura - Sublimação - Tecido Oxford - Formato Gota");//100,01
+                    jComboBoxProdutos.addItem("WindBanner Base Somente Tecido - 3mts + Costura - Sublimação - Tecido Oxford - Formato Pena");//100,01
+                    jComboBoxProdutos.addItem("WindBanner Base Somente Tecido - 3mts + Costura - Sublimação - Tecido Oxford - Formato Vela");//100,01
+                    // Adicione outros casos para segmentos adicionais, se aplicável
+                    break;
+                default:
             }
         }
     }
@@ -959,6 +1086,8 @@ public class PainelM2 extends javax.swing.JPanel {
             itemComboBoxValuesAdesivos();
         } else if (jComboBoxSegmento.getSelectedItem() == "Banner") {
             itemComboBoxValuesBanner();
+        } else if (jComboBoxSegmento.getSelectedItem() == "WindBanner") {
+            itemComboBoxValuesWindBanner();
         }
     }
 
