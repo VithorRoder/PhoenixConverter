@@ -16,7 +16,7 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
         initComponents();
 
         // Nível de Opacidade do Frame
-        setOpacity(0.993f);
+        setOpacity(0.992f);
 
         // Título e ícone do Frame
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/png/convert.png"));
