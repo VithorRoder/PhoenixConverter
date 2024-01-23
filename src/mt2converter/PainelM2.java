@@ -906,12 +906,151 @@ public class PainelM2 extends javax.swing.JPanel {
         Object itemSelecionado = jComboBoxProdutos.getSelectedItem();
         if (itemSelecionado != null) {
             switch (itemSelecionado.toString()) {
+                ///// Solvente ////////////////////////////////////////////////////////////
                 case "Banner c Tubete e Corda - Brilho -  Impressão Solvente - 4/0 - 280g":
                     jTextFieldMt2.setText("26,00");
                     clearAll2();
                     break;
+                case "Banner c Tubete e Corda - Brilho -  Impressão Solvente - 4/0 - 380g":
+                    jTextFieldMt2.setText("28,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Brilho -  Impressão Solvente - 4/0 - 440g":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Fosco -  Impressão Solvente - 4/0 - 280g":
+                    jTextFieldMt2.setText("26,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Fosco -  Impressão Solvente - 4/0 - 380g":
+                    jTextFieldMt2.setText("28,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Fosco -  Impressão Solvente - 4/0 - 440g":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Solvente - 4/0 - 280g":
+                    jTextFieldMt2.setText("26,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Solvente - 4/0 - 380g":
+                    jTextFieldMt2.setText("28,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Solvente - 4/0 - 440g":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Solvente - 4/0 - 280g":
+                    jTextFieldMt2.setText("26,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Solvente - 4/0 - 380g":
+                    jTextFieldMt2.setText("28,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Solvente - 4/0 - 440g":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                ///// UV //////////////////////////////////////////////////////////////////////////////
+                case "Banner c Tubete e Corda - Brilho -  Impressão UV - 4/0 - 280g":
+                    jTextFieldMt2.setText("29,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Brilho -  Impressão UV - 4/0 - 380g":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Brilho -  Impressão UV - 4/0 - 440g":
+                    jTextFieldMt2.setText("34,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Fosco -  Impressão UV - 4/0 - 280g":
+                    jTextFieldMt2.setText("29,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Fosco -  Impressão UV - 4/0 - 380g":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Fosco -  Impressão UV - 4/0 - 440g":
+                    jTextFieldMt2.setText("34,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão UV - 4/0 - 280g":
+                    jTextFieldMt2.setText("29,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão UV - 4/0 - 380g":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão UV - 4/0 - 440g":
+                    jTextFieldMt2.setText("34,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão UV - 4/0 - 280g":
+                    jTextFieldMt2.setText("29,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão UV - 4/0 - 380g":
+                    jTextFieldMt2.setText("31,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão UV - 4/0 - 440g":
+                    jTextFieldMt2.setText("34,00");
+                    clearAll2();
+                    break;
+                ///// Látex //////////////////////////////////////////////////////////////////////////////
                 case "Banner c Tubete e Corda - Brilho -  Impressão Látex - 4/0 - 280g":
                     jTextFieldMt2.setText("30,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Brilho -  Impressão Látex - 4/0 - 380g":
+                    jTextFieldMt2.setText("32,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Brilho -  Impressão Látex - 4/0 - 440g":
+                    jTextFieldMt2.setText("35,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Fosco -  Impressão Látex - 4/0 - 280g":
+                    jTextFieldMt2.setText("30,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Fosco -  Impressão Látex - 4/0 - 380g":
+                    jTextFieldMt2.setText("32,00");
+                    clearAll2();
+                    break;
+                case "Banner c Tubete e Corda - Fosco -  Impressão Látex - 4/0 - 440g":
+                    jTextFieldMt2.setText("35,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Látex - 4/0 - 280g":
+                    jTextFieldMt2.setText("30,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Látex - 4/0 - 380g":
+                    jTextFieldMt2.setText("32,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Látex - 4/0 - 440g":
+                    jTextFieldMt2.setText("35,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Látex - 4/0 - 280g":
+                    jTextFieldMt2.setText("30,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Látex - 4/0 - 380g":
+                    jTextFieldMt2.setText("32,00");
+                    clearAll2();
+                    break;
+                case "Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Látex - 4/0 - 440g":
+                    jTextFieldMt2.setText("35,00");
                     clearAll2();
                     break;
                 default:
@@ -1060,7 +1199,43 @@ public class PainelM2 extends javax.swing.JPanel {
                     break;
                 case "Banner":
                     jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão Solvente - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão Solvente - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão Solvente - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Fosco -  Impressão Solvente - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Fosco -  Impressão Solvente - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Fosco -  Impressão Solvente - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Solvente - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Solvente - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Solvente - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Solvente - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Solvente - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Solvente - 4/0 - 440g");
+
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão UV - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão UV - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão UV - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Fosco -  Impressão UV - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Fosco -  Impressão UV - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Fosco -  Impressão UV - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão UV - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão UV - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão UV - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão UV - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão UV - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão UV - 4/0 - 440g");
+
                     jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão Látex - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão Látex - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Brilho -  Impressão Látex - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Fosco -  Impressão Látex - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Fosco -  Impressão Látex - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner c Tubete e Corda - Fosco -  Impressão Látex - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Látex - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Látex - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Brilho -  Impressão Látex - 4/0 - 440g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Látex - 4/0 - 280g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Látex - 4/0 - 380g");
+                    jComboBoxProdutos.addItem("Banner Faixa + Tubetes nas Laterais - Fosco -  Impressão Látex - 4/0 - 440g");
                     // Adicione outros casos para segmentos adicionais, se aplicável
                     break;
                 case "WindBanner":
