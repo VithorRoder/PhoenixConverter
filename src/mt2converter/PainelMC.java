@@ -53,10 +53,10 @@ public class PainelMC extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/PhoenixTransp89.png"))); // NOI18N
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel1.setFont(new java.awt.Font("Perpetua", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Perpetua", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Phoenix Gráfica Converter MC");
+        jLabel1.setText("MC");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

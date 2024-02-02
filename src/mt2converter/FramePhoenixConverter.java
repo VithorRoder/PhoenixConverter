@@ -42,8 +42,10 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        setMinimumSize(new java.awt.Dimension(1360, 700));
+        setMaximumSize(new java.awt.Dimension(1200, 690));
+        setMinimumSize(new java.awt.Dimension(1200, 690));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1200, 690));
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

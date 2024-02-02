@@ -63,10 +63,10 @@ public class PainelM2 extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Perpetua", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Perpetua", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Phoenix Gráfica Converter M2");
+        jLabel1.setText("M2");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
