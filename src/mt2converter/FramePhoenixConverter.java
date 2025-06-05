@@ -6,7 +6,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.geom.RoundRectangle2D;
 
 public class FramePhoenixConverter extends javax.swing.JFrame {
 
@@ -31,9 +30,6 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
         // Ação do Mouse de clicar e arrastar a Frame
         mouseListenerFrame();
 
-        // Desenho das Bordas do Frame
-        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 30, 30));
-
     }
 
     @SuppressWarnings("unchecked")
@@ -42,17 +38,17 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        setMaximumSize(new java.awt.Dimension(1200, 690));
-        setMinimumSize(new java.awt.Dimension(1200, 690));
+        setMaximumSize(new java.awt.Dimension(800, 300));
+        setMinimumSize(new java.awt.Dimension(800, 300));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1200, 690));
+        setPreferredSize(new java.awt.Dimension(1044, 730));
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1247, Short.MAX_VALUE)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,6 +61,12 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
     private void mouseListenerFrame() {
         addMouseListener(new MouseAdapter() {
@@ -84,5 +86,4 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
             }
         });
     }
-
 }

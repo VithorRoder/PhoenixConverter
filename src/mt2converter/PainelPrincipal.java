@@ -1,37 +1,61 @@
 package mt2converter;
 
+import ViewProducts.productsMain;
 import java.awt.BorderLayout;
-import java.awt.Container;
+import java.awt.Color;
+import java.awt.Component;
+import java.util.Stack;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class PainelPrincipal extends javax.swing.JPanel {
+public class PainelPrincipal extends JPanel {
+
+    productsMain produtos = new productsMain();
+    private final Stack<JPanel> historico = new Stack<>();
 
     public PainelPrincipal() {
         initComponents();
+        jPanel1.setBackground(new Color(255, 0, 0, 60));
+        jPanel2.setLayout(new BorderLayout());
+        jPanel2.add(produtos, BorderLayout.CENTER);
+        jPanel2.revalidate();
+        jPanel2.repaint();
 
+        backButton.setOpaque(false);
+        backButton.setContentAreaFilled(false);
+        backButton.setBorderPainted(false);
+
+        refreshButton.setOpaque(false);
+        refreshButton.setContentAreaFilled(false);
+        refreshButton.setBorderPainted(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         degradePanel1 = new Utilitários.DegradePanel();
-        jLabel6 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         painelFecharEMinimizar = new javax.swing.JPanel();
         botMinimizar = new javax.swing.JButton();
         botFechar = new javax.swing.JButton();
-        jButtonRedondo1 = new Utilitários.JButtonRedondo();
-        jButtonRedondo3 = new Utilitários.JButtonRedondo();
-        jButtonDiversos = new Utilitários.JButtonRedondo();
-        jButtonAcabamentos = new Utilitários.JButtonRedondo();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        refreshButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setMaximumSize(new java.awt.Dimension(700, 500));
         setPreferredSize(new java.awt.Dimension(700, 500));
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/phoenix.png"))); // NOI18N
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        degradePanel1.setPreferredSize(new java.awt.Dimension(1065, 720));
+
+        jPanel1.setBackground(new java.awt.Color(204, 0, 51));
 
         painelFecharEMinimizar.setOpaque(false);
 
@@ -60,9 +84,9 @@ public class PainelPrincipal extends javax.swing.JPanel {
             .addGroup(painelFecharEMinimizarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
         painelFecharEMinimizarLayout.setVerticalGroup(
             painelFecharEMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,93 +97,118 @@ public class PainelPrincipal extends javax.swing.JPanel {
                     .addComponent(botFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jButtonRedondo1.setBackground(new java.awt.Color(51, 51, 255));
-        jButtonRedondo1.setText("MC");
-        jButtonRedondo1.setFont(new java.awt.Font("Stencil", 0, 80)); // NOI18N
-        jButtonRedondo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRedondo1ActionPerformed(evt);
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton2.setText("Menu");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Gráfica Phoenix");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(painelFecharEMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(painelFecharEMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(50, Short.MAX_VALUE))))
+        );
+
+        jPanel2.setOpaque(false);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1065, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 557, Short.MAX_VALUE)
+        );
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
+        refreshButton.setBackground(new java.awt.Color(255, 255, 255));
+        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/RefreshCinza.png"))); // NOI18N
+        refreshButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        refreshButton.setOpaque(true);
+
+        backButton.setBackground(new java.awt.Color(255, 255, 255));
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/setaCinza.png"))); // NOI18N
+        backButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backButtonMouseClicked(evt);
             }
         });
 
-        jButtonRedondo3.setBackground(new java.awt.Color(51, 51, 255));
-        jButtonRedondo3.setText("M2");
-        jButtonRedondo3.setFont(new java.awt.Font("Stencil", 0, 80)); // NOI18N
-        jButtonRedondo3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRedondo3ActionPerformed(evt);
-            }
-        });
-
-        jButtonDiversos.setBackground(new java.awt.Color(51, 51, 255));
-        jButtonDiversos.setText("Diversos");
-        jButtonDiversos.setFont(new java.awt.Font("Stencil", 0, 32)); // NOI18N
-        jButtonDiversos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDiversosActionPerformed(evt);
-            }
-        });
-
-        jButtonAcabamentos.setBackground(new java.awt.Color(51, 51, 255));
-        jButtonAcabamentos.setText("Acabamentos");
-        jButtonAcabamentos.setFont(new java.awt.Font("Stencil", 0, 30)); // NOI18N
-        jButtonAcabamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAcabamentosActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         javax.swing.GroupLayout degradePanel1Layout = new javax.swing.GroupLayout(degradePanel1);
         degradePanel1.setLayout(degradePanel1Layout);
         degradePanel1Layout.setHorizontalGroup(
             degradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(degradePanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, degradePanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(degradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(degradePanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(painelFecharEMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(degradePanel1Layout.createSequentialGroup()
-                        .addGroup(degradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonRedondo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonAcabamentos, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 629, Short.MAX_VALUE)
-                        .addGroup(degradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonRedondo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonDiversos, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(degradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1191, Short.MAX_VALUE))
         );
         degradePanel1Layout.setVerticalGroup(
             degradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(degradePanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(painelFecharEMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107)
-                .addGroup(degradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRedondo1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonRedondo3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                .addGroup(degradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonDiversos, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAcabamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(78, 78, 78))
-            .addGroup(degradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1241, Short.MAX_VALUE)
+            .addGap(0, 1065, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(degradePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(degradePanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -176,49 +225,46 @@ public class PainelPrincipal extends javax.swing.JPanel {
         System.exit(0);
     }//GEN-LAST:event_botFecharActionPerformed
 
-    private void jButtonRedondo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedondo1ActionPerformed
-        Container container = this.getParent();
-        container.removeAll();
-        container.add(new PainelMC(), BorderLayout.CENTER);
-        container.revalidate();
-        container.repaint();
-    }//GEN-LAST:event_jButtonRedondo1ActionPerformed
-
-    private void jButtonRedondo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedondo3ActionPerformed
-        Container container = this.getParent();
-        container.removeAll();
-        container.add(new PainelM2(), BorderLayout.CENTER);
-        container.revalidate();
-        container.repaint();
-    }//GEN-LAST:event_jButtonRedondo3ActionPerformed
-
-    private void jButtonAcabamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcabamentosActionPerformed
-        Container container = this.getParent();
-        container.removeAll();
-        container.add(new PainelAcabamentos(), BorderLayout.CENTER);
-        container.revalidate();
-        container.repaint();
-    }//GEN-LAST:event_jButtonAcabamentosActionPerformed
-
-    private void jButtonDiversosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDiversosActionPerformed
-        Container container = this.getParent();
-        container.removeAll();
-        container.add(new PainelDiversos(), BorderLayout.CENTER);
-        container.revalidate();
-        container.repaint();
-    }//GEN-LAST:event_jButtonDiversosActionPerformed
+    private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
+        voltarPainel();
+    }//GEN-LAST:event_backButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     public static javax.swing.JButton botFechar;
     public static javax.swing.JButton botMinimizar;
     private Utilitários.DegradePanel degradePanel1;
-    private Utilitários.JButtonRedondo jButtonAcabamentos;
-    private Utilitários.JButtonRedondo jButtonDiversos;
-    private Utilitários.JButtonRedondo jButtonRedondo1;
-    private Utilitários.JButtonRedondo jButtonRedondo3;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     public static javax.swing.JPanel painelFecharEMinimizar;
+    private javax.swing.JButton refreshButton;
     // End of variables declaration//GEN-END:variables
 
+    public void trocarPainel(JPanel novoPainel) {
+        Component atual = jPanel2.getComponentCount() > 0 ? jPanel2.getComponent(0) : null;
+
+        if (atual instanceof JPanel) {
+            historico.push((JPanel) atual);
+        }
+
+        jPanel2.removeAll();
+        jPanel2.add(novoPainel, BorderLayout.CENTER);
+        jPanel2.revalidate();
+        jPanel2.repaint();
+    }
+
+    public void voltarPainel() {
+        if (!historico.isEmpty()) {
+            JPanel anterior = historico.pop();
+            jPanel2.removeAll();
+            jPanel2.add(anterior, BorderLayout.CENTER);
+            jPanel2.revalidate();
+            jPanel2.repaint();
+        }
+    }
 }
