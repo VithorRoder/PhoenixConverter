@@ -1,6 +1,9 @@
 package ViewProducts;
 
+import ViewProductsTable.AzulejoTable;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import mt2converter.PainelPrincipal;
 
 public class productsBrindes extends JPanel {
 
@@ -71,6 +74,11 @@ public class productsBrindes extends JPanel {
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton3.setIconTextGap(30);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -102,6 +110,13 @@ public class productsBrindes extends JPanel {
                 .addContainerGap(99, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, this);
+        if (pai != null) {
+            pai.trocarPainel(new AzulejoTable());
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
