@@ -1,17 +1,26 @@
 package mt2converter;
 
+import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
 
 public class FramePhoenixConverter extends javax.swing.JFrame {
 
     private int mouseX, mouseY;
 
+    public static void main(String[] args) {
+        FlatDarkLaf.setup();
+        JFrame frame = new FramePhoenixConverter();
+        frame.setVisible(true);
+    }
+
     public FramePhoenixConverter() {
+        setUndecorated(true);
         initComponents();
 
         // Nível de Opacidade do Frame
@@ -30,6 +39,8 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
         // Ação do Mouse de clicar e arrastar a Frame
         mouseListenerFrame();
 
+        setShape(new java.awt.geom.RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 15, 15));
+
     }
 
     @SuppressWarnings("unchecked")
@@ -41,7 +52,7 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(800, 300));
         setMinimumSize(new java.awt.Dimension(800, 300));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1044, 730));
+        setPreferredSize(new java.awt.Dimension(1044, 713));
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -61,12 +72,6 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
     private void mouseListenerFrame() {
         addMouseListener(new MouseAdapter() {

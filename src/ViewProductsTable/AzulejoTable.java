@@ -1,6 +1,7 @@
 package ViewProductsTable;
 
 import DatabaseConnection.ConnectionPostgres;
+import ViewProductsFinal.azulejo.Azulejo_001;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
+import mt2converter.PainelPrincipal;
 
 public class AzulejoTable extends javax.swing.JPanel {
 
@@ -31,14 +34,16 @@ public class AzulejoTable extends javax.swing.JPanel {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelRegistros = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
-        setMaximumSize(new java.awt.Dimension(1035, 555));
-        setMinimumSize(new java.awt.Dimension(1035, 555));
+        setMaximumSize(new java.awt.Dimension(1030, 555));
+        setMinimumSize(new java.awt.Dimension(1030, 555));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(1035, 555));
+        setPreferredSize(new java.awt.Dimension(1030, 555));
 
+        jTableAzulejo.setBackground(new java.awt.Color(204, 255, 255));
+        jTableAzulejo.setForeground(new java.awt.Color(0, 0, 0));
         jTableAzulejo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -91,10 +96,17 @@ public class AzulejoTable extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTableAzulejo.setGridColor(new java.awt.Color(0, 0, 0));
         jTableAzulejo.setRequestFocusEnabled(false);
         jTableAzulejo.setRowHeight(22);
         jTableAzulejo.setShowGrid(true);
+        jTableAzulejo.setShowVerticalLines(false);
         jTableAzulejo.setVerifyInputWhenFocusTarget(false);
+        jTableAzulejo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAzulejoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAzulejo);
         if (jTableAzulejo.getColumnModel().getColumnCount() > 0) {
             jTableAzulejo.getColumnModel().getColumn(0).setPreferredWidth(28);
@@ -125,7 +137,7 @@ public class AzulejoTable extends javax.swing.JPanel {
 
         jLabel1.setText("Página 1 de 1");
 
-        jLabel2.setText("Total de Registros: 10");
+        jLabelRegistros.setText("Total de Registros: 10");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -145,7 +157,7 @@ public class AzulejoTable extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(589, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -153,7 +165,7 @@ public class AzulejoTable extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelRegistros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -176,12 +188,28 @@ public class AzulejoTable extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTableAzulejoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAzulejoMouseClicked
+        if (evt.getClickCount() == 2 && jTableAzulejo.getSelectedRow() != -1) {
+            int row = jTableAzulejo.getSelectedRow();
+
+            // Aqui você pode pegar os dados da linha, ex:
+            String produto = jTableAzulejo.getValueAt(row, 1).toString(); // coluna 1 = Produto
+
+            // Muda de painel
+            PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, AzulejoTable.this);
+            if (pai != null) {
+                // Pode passar os dados pro novo painel se quiser
+                pai.trocarPainel(new Azulejo_001());
+            }
+        }
+    }//GEN-LAST:event_jTableAzulejoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -191,7 +219,7 @@ public class AzulejoTable extends javax.swing.JPanel {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelRegistros;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAzulejo;
@@ -199,6 +227,7 @@ public class AzulejoTable extends javax.swing.JPanel {
 
     private void ShowList() {
         String sql = "SELECT * FROM azulejo";
+        int totalRegistros = 0;
 
         try {
             Connection conn = ConnectionPostgres.getConnection();
@@ -223,22 +252,22 @@ public class AzulejoTable extends javax.swing.JPanel {
                     rs.getString("valor_min")
                 };
                 model.addRow(row);
+                totalRegistros++;
             }
-
-            rs.close();
-            stmt.close();
-            conn.close();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao listar dados: " + e.getMessage());
         }
+
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-
         for (int i = 0; i < jTableAzulejo.getColumnCount(); i++) {
             TableColumn column = jTableAzulejo.getColumnModel().getColumn(i);
             column.setCellRenderer(centerRenderer);
         }
+
+        jLabelRegistros.setText("Total de Registros: " + totalRegistros);
+
     }
 
 }
