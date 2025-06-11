@@ -1,9 +1,17 @@
 package ViewProductsFinal.azulejo;
 
+import DatabaseConnection.ConnectionPostgres;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 public class Azulejo_001 extends javax.swing.JPanel {
 
-    public Azulejo_001() {
+    public Azulejo_001(int id) {
         initComponents();
+        carregarDadosDoBanco(id);
     }
 
     @SuppressWarnings("unchecked")
@@ -11,14 +19,14 @@ public class Azulejo_001 extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabelTituloDoItem = new javax.swing.JLabel();
+        jLabelQuantidade = new javax.swing.JLabel();
+        jLabelValor = new javax.swing.JLabel();
+        jLabelTipoProduto = new javax.swing.JLabel();
+        jLabelMidia = new javax.swing.JLabel();
+        jLabelCor = new javax.swing.JLabel();
+        jLabelFormato = new javax.swing.JLabel();
+        jLabelPrazo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -28,8 +36,11 @@ public class Azulejo_001 extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(0, 0, 0));
         setMaximumSize(new java.awt.Dimension(1030, 558));
         setMinimumSize(new java.awt.Dimension(1030, 558));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1030, 558));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -39,29 +50,45 @@ public class Azulejo_001 extends javax.swing.JPanel {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        jLabel2.setText("0001 - Titulo do Item");
+        jLabelTituloDoItem.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelTituloDoItem.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jLabelTituloDoItem.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTituloDoItem.setText("0001 - Titulo do Item");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel3.setText("Quantidade:");
+        jLabelQuantidade.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelQuantidade.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabelQuantidade.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelQuantidade.setText("Quantidade:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel4.setText("Valor: ");
+        jLabelValor.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelValor.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabelValor.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelValor.setText("Valor: ");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel5.setText("Tipo de produto:");
+        jLabelTipoProduto.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelTipoProduto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabelTipoProduto.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTipoProduto.setText("Tipo de produto:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel6.setText("Midia:");
+        jLabelMidia.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelMidia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabelMidia.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMidia.setText("Midia:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel7.setText("Cor:");
+        jLabelCor.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelCor.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabelCor.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCor.setText("Cor:");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel8.setText("Formato:");
+        jLabelFormato.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelFormato.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabelFormato.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFormato.setText("Formato:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel9.setText("Prazo mínimo de produção:");
+        jLabelPrazo.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelPrazo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabelPrazo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPrazo.setText("Prazo mínimo de produção:");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -174,17 +201,17 @@ public class Azulejo_001 extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabelQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelValor, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelTituloDoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabelCor, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelFormato, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelPrazo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelTipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelMidia, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
@@ -196,21 +223,21 @@ public class Azulejo_001 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelTituloDoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelValor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelTipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelMidia, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelCor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelFormato, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelPrazo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -228,17 +255,53 @@ public class Azulejo_001 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelCor;
+    private javax.swing.JLabel jLabelFormato;
+    private javax.swing.JLabel jLabelMidia;
+    private javax.swing.JLabel jLabelPrazo;
+    private javax.swing.JLabel jLabelQuantidade;
+    private javax.swing.JLabel jLabelTipoProduto;
+    private javax.swing.JLabel jLabelTituloDoItem;
+    private javax.swing.JLabel jLabelValor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
+
+    private void carregarDadosDoBanco(int id) {
+        String sql = "SELECT * FROM azulejo WHERE id = ?";
+
+        try {
+            Connection conn = ConnectionPostgres.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String produto = rs.getString("produto");
+                String quantidade = rs.getString("quantidade");
+                String valor = rs.getString("valor");
+                String tipoProduto = rs.getString("tipo");
+                String midia = rs.getString("midia");
+                String cor = rs.getString("cor");
+                String formato = rs.getString("formato");
+                String prazo = rs.getString("prazo_prod");    
+
+                jLabelTituloDoItem.setText(id + " - " + produto);
+                jLabelQuantidade.setText("Quantidade: " + quantidade);
+                jLabelValor.setText("Valor: " + valor);
+                jLabelTipoProduto.setText("Tipo de Produto: " + tipoProduto);
+                jLabelMidia.setText("Midia: " + midia);
+                jLabelCor.setText("Cor: " + cor);
+                jLabelFormato.setText("Formato: " + formato);
+                jLabelPrazo.setText("Prazo Mínimo de Produção: " + prazo);
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao carregar dados: " + e.getMessage());
+        }
+    }
 }

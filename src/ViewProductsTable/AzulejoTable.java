@@ -198,15 +198,11 @@ public class AzulejoTable extends javax.swing.JPanel {
     private void jTableAzulejoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAzulejoMouseClicked
         if (evt.getClickCount() == 2 && jTableAzulejo.getSelectedRow() != -1) {
             int row = jTableAzulejo.getSelectedRow();
+            int id = Integer.parseInt(jTableAzulejo.getValueAt(row, 0).toString());
 
-            // Aqui você pode pegar os dados da linha, ex:
-            String produto = jTableAzulejo.getValueAt(row, 1).toString(); // coluna 1 = Produto
-
-            // Muda de painel
             PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, AzulejoTable.this);
             if (pai != null) {
-                // Pode passar os dados pro novo painel se quiser
-                pai.trocarPainel(new Azulejo_001());
+                pai.trocarPainel(new Azulejo_001(id));
             }
         }
     }//GEN-LAST:event_jTableAzulejoMouseClicked
