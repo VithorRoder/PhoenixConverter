@@ -22,8 +22,10 @@ public class productsBrindes extends JPanel {
         jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1030, 555));
+        setMinimumSize(new java.awt.Dimension(1030, 555));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(1044, 564));
+        setPreferredSize(new java.awt.Dimension(1030, 555));
 
         jButton11.setBackground(new java.awt.Color(204, 255, 255));
         jButton11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N

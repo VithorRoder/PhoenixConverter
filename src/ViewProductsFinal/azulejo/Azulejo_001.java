@@ -38,10 +38,10 @@ public class Azulejo_001 extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(0, 0, 0));
         setForeground(new java.awt.Color(0, 0, 0));
-        setMaximumSize(new java.awt.Dimension(1030, 558));
-        setMinimumSize(new java.awt.Dimension(1030, 558));
+        setMaximumSize(new java.awt.Dimension(1030, 555));
+        setMinimumSize(new java.awt.Dimension(1030, 555));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(1030, 558));
+        setPreferredSize(new java.awt.Dimension(1030, 555));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

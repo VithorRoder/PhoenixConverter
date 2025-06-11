@@ -21,7 +21,10 @@ public class productsMain extends JPanel {
         jButton8 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setMaximumSize(new java.awt.Dimension(1030, 555));
+        setMinimumSize(new java.awt.Dimension(1030, 555));
         setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(1030, 555));
 
         jButton12.setBackground(new java.awt.Color(204, 255, 255));
         jButton12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
