@@ -1,7 +1,7 @@
 package ViewProductsTable;
 
 import DatabaseConnection.ConnectionPostgres;
-import ViewProductsFinal.azulejo.Azulejo_001;
+import ViewProductsFinal.azulejo.AzulejoPanelFinal;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -202,7 +202,7 @@ public class AzulejoTable extends javax.swing.JPanel {
 
             PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, AzulejoTable.this);
             if (pai != null) {
-                pai.trocarPainel(new Azulejo_001(id));
+                pai.trocarPainel(new AzulejoPanelFinal(id));
             }
         }
     }//GEN-LAST:event_jTableAzulejoMouseClicked

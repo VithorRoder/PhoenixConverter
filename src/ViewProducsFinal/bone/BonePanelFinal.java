@@ -1,19 +1,20 @@
+package ViewProducsFinal.bone;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ViewProductsFinal.azulejo;
 
 /**
  *
  * @author lion_
  */
-public class Azulejo_002 extends javax.swing.JPanel {
+public class BonePanelFinal extends javax.swing.JPanel {
 
     /**
-     * Creates new form Azulejo_002
+     * Creates new form Bone_001
      */
-    public Azulejo_002() {
+    public BonePanelFinal() {
         initComponents();
     }
 
