@@ -1,7 +1,7 @@
 package ViewProductsTable;
 
 import DatabaseConnection.ConnectionPostgres;
-import ViewProductsFinal.azulejo.AzulejoPanelFinal;
+import ViewProductsPanelFinal.AzulejoPanelFinal;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
