@@ -3,7 +3,7 @@ package ViewProducts;
 import ViewProductsTable.AzulejoTable;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import mt2converter.PainelPrincipal;
+import Main.PainelPrincipal;
 
 public class productsBrindes extends JPanel {
 

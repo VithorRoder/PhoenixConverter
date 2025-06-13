@@ -2,7 +2,7 @@ package ViewProducts;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import mt2converter.PainelPrincipal;
+import Main.PainelPrincipal;
 
 public class productsMain extends JPanel {
 

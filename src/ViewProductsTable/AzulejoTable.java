@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
-import mt2converter.PainelPrincipal;
+import Main.PainelPrincipal;
 
 public class AzulejoTable extends javax.swing.JPanel {
 

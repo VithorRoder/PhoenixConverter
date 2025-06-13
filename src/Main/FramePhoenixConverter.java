@@ -1,4 +1,4 @@
-package mt2converter;
+package Main;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.BorderLayout;
@@ -23,20 +23,16 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
         setUndecorated(true);
         initComponents();
 
-        // Nível de Opacidade do Frame
         setOpacity(0.992f);
 
-        // Título e ícone do Frame
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/png/convert.png"));
         setIconImage(icon);
         setTitle("Conversor Phoenix");
 
-        // Adicionando o Container do PanelPrincipal
         Container container = getContentPane();
         container.setLayout(new BorderLayout());
         container.add(new PainelPrincipal(), BorderLayout.CENTER);
 
-        // Ação do Mouse de clicar e arrastar a Frame
         mouseListenerFrame();
 
         setShape(new java.awt.geom.RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 15, 15));
@@ -49,21 +45,21 @@ public class FramePhoenixConverter extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        setMaximumSize(new java.awt.Dimension(800, 300));
-        setMinimumSize(new java.awt.Dimension(800, 300));
+        setMaximumSize(new java.awt.Dimension(1095, 710));
+        setMinimumSize(new java.awt.Dimension(1095, 710));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1044, 713));
+        setPreferredSize(new java.awt.Dimension(1095, 710));
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1195, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGap(0, 743, Short.MAX_VALUE)
         );
 
         pack();
