@@ -49,29 +49,37 @@ public class SpinnerPanelQuantidade extends JPanel {
 
     private void atualizarValor(int delta) {
         lerValorManual();
+        int antigoValor = valor;
         int novoValor = valor + delta;
         if (novoValor >= valorMinimo) {
             valor = novoValor;
             campoTexto.setText(String.valueOf(valor));
+            firePropertyChange("valor", antigoValor, novoValor);
         }
     }
 
     private void lerValorManual() {
+        int antigoValor = valor;
         try {
-            int valorDigitado = Integer.parseInt(campoTexto.getText().trim());
-            if (valorDigitado >= valorMinimo) {
-                valor = valorDigitado;
+            int digitado = Integer.parseInt(campoTexto.getText().trim());
+            if (digitado >= valorMinimo) {
+                valor = digitado;
             } else {
                 valor = valorMinimo;
-                campoTexto.setText(String.valueOf(valor));
             }
-        } catch (NumberFormatException ex) {
-            campoTexto.setText(String.valueOf(valor));
+        } catch (NumberFormatException e) {
         }
+        campoTexto.setText(String.valueOf(valor));
+        firePropertyChange("valor", antigoValor, valor);
     }
 
     public int getValor() {
         return valor;
+    }
+
+    public String getValorString() {
+        String texto = String.valueOf(valor);
+        return texto;
     }
 
     public void setValor(int novoValor) {
@@ -80,5 +88,5 @@ public class SpinnerPanelQuantidade extends JPanel {
             campoTexto.setText(String.valueOf(valor));
         }
     }
-    
+
 }
