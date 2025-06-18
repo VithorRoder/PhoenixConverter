@@ -22,6 +22,7 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
         calcularTotal();
         buttonGroup();
         setIconToggleButton();
+        configurarListeners();
     }
 
     @SuppressWarnings("unchecked")
@@ -448,7 +449,6 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
             jLabelQuantidadeTotais.setText(String.valueOf(evt.getNewValue()));
             somaMatQtd();
             calcularTotal();
-            valorFrete();
         }
     }//GEN-LAST:event_spinnerPanelQuantidade1PropertyChange
 
@@ -592,9 +592,16 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
     }
 
     private void valorFrete() {
-
-        // Proxima Implementação.
-        
+        if (jToggleButton2.isSelected()) {
+            jLabelFreteTotais.setText("16,00");
+        } else {
+            jLabelFreteTotais.setText("0,00");
+        }
+        somaMatQtd();
+        calcularTotal();
     }
 
+    private void configurarListeners() {
+        jToggleButton2.addChangeListener(e -> valorFrete());
+    }
 }
