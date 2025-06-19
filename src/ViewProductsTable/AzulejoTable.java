@@ -101,6 +101,7 @@ public class AzulejoTable extends javax.swing.JPanel {
         jTableAzulejo.setRowHeight(22);
         jTableAzulejo.setShowGrid(true);
         jTableAzulejo.setShowVerticalLines(false);
+        jTableAzulejo.getTableHeader().setReorderingAllowed(false);
         jTableAzulejo.setVerifyInputWhenFocusTarget(false);
         jTableAzulejo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
