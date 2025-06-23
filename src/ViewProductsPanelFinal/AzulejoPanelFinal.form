@@ -289,7 +289,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jLabel11" alignment="1" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel5" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
@@ -300,15 +300,18 @@
                       <Component id="jLabel14" min="-2" pref="119" max="-2" attributes="0"/>
                       <Component id="jLabel15" min="-2" pref="119" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="91" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabelQuantidadeTotais" max="32767" attributes="0"/>
-                      <Component id="jLabelMaterialTotais" max="32767" attributes="0"/>
-                      <Component id="jLabelAcabamentoTotais" max="32767" attributes="0"/>
-                      <Component id="jLabel19" pref="119" max="32767" attributes="0"/>
-                      <Component id="jLabel20" max="32767" attributes="0"/>
-                      <Component id="jLabelFreteTotais" max="32767" attributes="0"/>
-                      <Component id="jLabelTotalTotais" max="32767" attributes="0"/>
+                      <Component id="jLabelPrecoMin" pref="119" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabelQuantidadeTotais" max="32767" attributes="0"/>
+                          <Component id="jLabelMaterialTotais" max="32767" attributes="0"/>
+                          <Component id="jLabelAcabamentoTotais" max="32767" attributes="0"/>
+                          <Component id="jLabel19" pref="119" max="32767" attributes="0"/>
+                          <Component id="jLabel20" max="32767" attributes="0"/>
+                          <Component id="jLabelFreteTotais" max="32767" attributes="0"/>
+                          <Component id="jLabelTotalTotais" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -353,6 +356,9 @@
                       <Component id="jLabelTotalTotais" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jLabel15" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelPrecoMin" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -534,6 +540,13 @@
               <Color blue="ff" green="66" red="33" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="10,80"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPrecoMin">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="(Pre&#xe7;o M&#xed;nimo)"/>
+            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>

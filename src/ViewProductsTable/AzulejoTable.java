@@ -15,6 +15,8 @@ import javax.swing.table.TableColumn;
 import Main.PainelPrincipal;
 
 public class AzulejoTable extends javax.swing.JPanel {
+    
+    private final Connection conn = ConnectionPostgres.getConnection();
 
     public AzulejoTable() {
         initComponents();
@@ -227,7 +229,6 @@ public class AzulejoTable extends javax.swing.JPanel {
         int totalRegistros = 0;
 
         try {
-            Connection conn = ConnectionPostgres.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 

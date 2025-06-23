@@ -1,5 +1,6 @@
 package Main;
 
+import DatabaseConnection.ConnectionPostgres;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -9,12 +10,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 
-public class FramePhoenixConverter extends javax.swing.JFrame {
+public class FramePhoenixConverter extends JFrame {
 
     private int mouseX, mouseY;
 
     public static void main(String[] args) {
         FlatDarkLaf.setup();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("Conexao com o banco encerrada.");
+            ConnectionPostgres.closeConnection();
+        }));
         JFrame frame = new FramePhoenixConverter();
         frame.setVisible(true);
     }

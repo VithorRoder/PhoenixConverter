@@ -1,47 +1,37 @@
 package DatabaseConnection;
 
-import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ConnectionPostgres {
 
-    private static Connection connn = null;
+    private static Connection conn;
 
-    private ConnectionPostgres() {
+    private static final String URL = "jdbc:postgresql://localhost:5433/phoenixconverterDB";
+    private static final String USER = "postgres";
+    private static final String PASS = "211205";
 
-    }
-
-    public static synchronized Connection getConnection() throws SQLException {
+    public static Connection getConnection() {
         try {
-            if (connn == null || connn.isClosed()) {
-                System.out.println("Conectando ao banco de dados...");
-                String url = "jdbc:postgresql://localhost:5433/phoenixconverterDB";
-                String user = "postgres";
-                String password = "211205";
-                connn = DriverManager.getConnection(url, user, password);
+            if (conn == null || conn.isClosed()) {
+                System.out.println("Conectando com o Banco de Dados...");
+                conn = DriverManager.getConnection(URL, USER, PASS);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Falha na conexão com o servidor: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            throw new RuntimeException("Erro ao conectar com o banco de dados: " + e.getMessage(), e);
         }
-        return connn;
+
+        return conn;
     }
 
-    public static void close(Connection conn, PreparedStatement stmt, ResultSet rs) {
+    public static void closeConnection() {
         try {
-            if (stmt != null) {
-                stmt.close();
+            if (conn != null && !conn.isClosed()) {
+                conn.close();
             }
-
-            if (rs != null) {
-                rs.close();
-            }
-
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
     }
 }

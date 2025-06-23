@@ -12,17 +12,21 @@ import javax.swing.JOptionPane;
 
 public class AzulejoPanelFinal extends javax.swing.JPanel {
 
+    private final Connection conn = ConnectionPostgres.getConnection();
     private double precoUnitario;
+    private double precoMin;
 
     public AzulejoPanelFinal(int id) {
         initComponents();
         carregarDadosDoBanco(id);
         disableLxA();
         somaMatQtd();
-        calcularTotal();
         buttonGroup();
         setIconToggleButton();
         configurarListeners();
+        setVisibleLabelPrecoMin();
+        setPrecoMin(id);
+        calcularTotal();
     }
 
     @SuppressWarnings("unchecked")
@@ -56,6 +60,7 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         jLabelFreteTotais = new javax.swing.JLabel();
         jLabelTotalTotais = new javax.swing.JLabel();
+        jLabelPrecoMin = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -219,12 +224,16 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
         jLabelTotalTotais.setForeground(new java.awt.Color(51, 102, 255));
         jLabelTotalTotais.setText("10,80");
 
+        jLabelPrecoMin.setText("(Preço Mínimo)");
+        jLabelPrecoMin.setEnabled(false);
+        jLabelPrecoMin.setFocusable(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,15 +243,17 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelQuantidadeTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelMaterialTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelAcabamentoTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelFreteTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelTotalTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelPrecoMin, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelQuantidadeTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelMaterialTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelAcabamentoTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelFreteTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelTotalTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -276,7 +287,10 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
                 .addGap(4, 4, 4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTotalTotais, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPrecoMin)
+                .addContainerGap())
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -478,6 +492,7 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelMaterialTotais;
     private javax.swing.JLabel jLabelMidia;
     private javax.swing.JLabel jLabelPrazo;
+    private javax.swing.JLabel jLabelPrecoMin;
     private javax.swing.JLabel jLabelQuantidade;
     private javax.swing.JLabel jLabelQuantidadeTotais;
     private javax.swing.JLabel jLabelTipoProduto;
@@ -506,7 +521,6 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
         String sql = "SELECT * FROM azulejo WHERE id = ?";
 
         try {
-            Connection conn = ConnectionPostgres.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
@@ -577,6 +591,15 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
         String totalFormatado = String.format(new Locale("pt", "BR"), "R$ %.2f", total)
                 .replace('.', ',');
         jLabelTotalTotais.setText(totalFormatado);
+
+        if (total <= precoMin) {
+            String precoMinFormatado = String.format(new Locale("pt", "BR"), "R$ %.2f", precoMin)
+                    .replace('.', ',');
+            jLabelTotalTotais.setText(precoMinFormatado);
+            jLabelPrecoMin.setVisible(true);
+        } else if (total >= precoMin) {
+            jLabelPrecoMin.setVisible(false);
+        }
     }
 
     private void buttonGroup() {
@@ -593,7 +616,7 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
 
     private void valorFrete() {
         if (jToggleButton2.isSelected()) {
-            jLabelFreteTotais.setText("16,00");
+            jLabelFreteTotais.setText("22,00");
         } else {
             jLabelFreteTotais.setText("0,00");
         }
@@ -603,5 +626,39 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
 
     private void configurarListeners() {
         jToggleButton2.addChangeListener(e -> valorFrete());
+    }
+
+    private void setVisibleLabelPrecoMin() {
+        jLabelPrecoMin.setVisible(false);
+    }
+
+    private double setPrecoMin(int id) {
+        String sql = "SELECT valor_min FROM azulejo WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    String valorMinStr = rs.getString("valor_min");
+
+                    if (valorMinStr != null && !valorMinStr.isEmpty()) {
+                        valorMinStr = valorMinStr.replace("R$", "").replace(" ", "").replace(",", ".");
+                        precoMin = Double.parseDouble(valorMinStr);
+                    } else {
+                        precoMin = 0.0;
+                    }
+                } else {
+                    precoMin = 0.0;
+                    JOptionPane.showMessageDialog(null, "Nenhum encontrado para o id " + id);
+                }
+            }
+
+        } catch (SQLException | NumberFormatException e) {
+            precoMin = 0.0;
+            JOptionPane.showMessageDialog(null, "Erro ao carregar valor_min: " + e.getMessage());
+        }
+
+        return precoMin;
     }
 }
