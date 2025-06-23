@@ -4,6 +4,7 @@ import ViewProductsTable.AzulejoTable;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import Main.PainelPrincipal;
+import ViewProductsTable.BoneTable;
 
 public class productsBrindes extends JPanel {
 
@@ -66,6 +67,11 @@ public class productsBrindes extends JPanel {
         jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton8.setIconTextGap(30);
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(204, 255, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -119,6 +125,13 @@ public class productsBrindes extends JPanel {
             pai.trocarPainel(new AzulejoTable());
         }
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, this);
+        if (pai != null) {
+            pai.trocarPainel(new BoneTable());
+        }
+    }//GEN-LAST:event_jButton8MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

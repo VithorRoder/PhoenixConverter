@@ -28,7 +28,7 @@ public class AzulejoTable extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAzulejo = new javax.swing.JTable();
+        jTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -44,9 +44,9 @@ public class AzulejoTable extends javax.swing.JPanel {
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1030, 555));
 
-        jTableAzulejo.setBackground(new java.awt.Color(204, 255, 255));
-        jTableAzulejo.setForeground(new java.awt.Color(0, 0, 0));
-        jTableAzulejo.setModel(new javax.swing.table.DefaultTableModel(
+        jTable.setBackground(new java.awt.Color(204, 255, 255));
+        jTable.setForeground(new java.awt.Color(0, 0, 0));
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -98,22 +98,22 @@ public class AzulejoTable extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTableAzulejo.setGridColor(new java.awt.Color(0, 0, 0));
-        jTableAzulejo.setRequestFocusEnabled(false);
-        jTableAzulejo.setRowHeight(22);
-        jTableAzulejo.setShowGrid(true);
-        jTableAzulejo.setShowVerticalLines(false);
-        jTableAzulejo.getTableHeader().setReorderingAllowed(false);
-        jTableAzulejo.setVerifyInputWhenFocusTarget(false);
-        jTableAzulejo.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable.setGridColor(new java.awt.Color(0, 0, 0));
+        jTable.setRequestFocusEnabled(false);
+        jTable.setRowHeight(22);
+        jTable.setShowGrid(true);
+        jTable.setShowVerticalLines(false);
+        jTable.getTableHeader().setReorderingAllowed(false);
+        jTable.setVerifyInputWhenFocusTarget(false);
+        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableAzulejoMouseClicked(evt);
+                jTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableAzulejo);
-        if (jTableAzulejo.getColumnModel().getColumnCount() > 0) {
-            jTableAzulejo.getColumnModel().getColumn(0).setPreferredWidth(28);
-            jTableAzulejo.getColumnModel().getColumn(1).setPreferredWidth(200);
+        jScrollPane1.setViewportView(jTable);
+        if (jTable.getColumnModel().getColumnCount() > 0) {
+            jTable.getColumnModel().getColumn(0).setPreferredWidth(28);
+            jTable.getColumnModel().getColumn(1).setPreferredWidth(200);
         }
 
         jPanel2.setOpaque(false);
@@ -198,17 +198,17 @@ public class AzulejoTable extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTableAzulejoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAzulejoMouseClicked
-        if (evt.getClickCount() == 2 && jTableAzulejo.getSelectedRow() != -1) {
-            int row = jTableAzulejo.getSelectedRow();
-            int id = Integer.parseInt(jTableAzulejo.getValueAt(row, 0).toString());
+    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+        if (evt.getClickCount() == 2 && jTable.getSelectedRow() != -1) {
+            int row = jTable.getSelectedRow();
+            int id = Integer.parseInt(jTable.getValueAt(row, 0).toString());
 
             PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, AzulejoTable.this);
             if (pai != null) {
                 pai.trocarPainel(new AzulejoPanelFinal(id));
             }
         }
-    }//GEN-LAST:event_jTableAzulejoMouseClicked
+    }//GEN-LAST:event_jTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -221,7 +221,7 @@ public class AzulejoTable extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelRegistros;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableAzulejo;
+    private javax.swing.JTable jTable;
     // End of variables declaration//GEN-END:variables
 
     private void ShowList() {
@@ -232,7 +232,7 @@ public class AzulejoTable extends javax.swing.JPanel {
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
-            DefaultTableModel model = (DefaultTableModel) jTableAzulejo.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTable.getModel();
             model.setRowCount(0);
 
             while (rs.next()) {
@@ -259,8 +259,8 @@ public class AzulejoTable extends javax.swing.JPanel {
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        for (int i = 0; i < jTableAzulejo.getColumnCount(); i++) {
-            TableColumn column = jTableAzulejo.getColumnModel().getColumn(i);
+        for (int i = 0; i < jTable.getColumnCount(); i++) {
+            TableColumn column = jTable.getColumnModel().getColumn(i);
             column.setCellRenderer(centerRenderer);
         }
 
