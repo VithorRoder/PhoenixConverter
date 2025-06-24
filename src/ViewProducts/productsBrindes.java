@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import Main.PainelPrincipal;
 import ViewProductsTable.BoneTable;
+import ViewProductsTable.CanecaTable;
 
 public class productsBrindes extends JPanel {
 
@@ -57,6 +58,11 @@ public class productsBrindes extends JPanel {
         jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton9.setIconTextGap(30);
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
 
         jButton8.setBackground(new java.awt.Color(204, 255, 255));
         jButton8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -133,6 +139,13 @@ public class productsBrindes extends JPanel {
         }
     }//GEN-LAST:event_jButton8MouseClicked
 
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, this);
+        if (pai != null) {
+            pai.trocarPainel(new CanecaTable());
+        }
+    }//GEN-LAST:event_jButton9MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
@@ -141,4 +154,5 @@ public class productsBrindes extends JPanel {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     // End of variables declaration//GEN-END:variables
+
 }

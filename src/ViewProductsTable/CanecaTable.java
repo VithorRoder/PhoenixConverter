@@ -2,7 +2,7 @@ package ViewProductsTable;
 
 import DatabaseConnection.ConnectionPostgres;
 import Main.PainelPrincipal;
-import ViewProductsPanelFinal.BonePanelFinal;
+import ViewProductsPanelFinal.CanecaPanelFinal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,11 +14,11 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-public class BoneTable extends javax.swing.JPanel {
-    
-     private final Connection conn = ConnectionPostgres.getConnection();
+public class CanecaTable extends javax.swing.JPanel {
 
-    public BoneTable() {
+    private final Connection conn = ConnectionPostgres.getConnection();
+
+    public CanecaTable() {
         initComponents();
         ShowList();
     }
@@ -37,6 +37,8 @@ public class BoneTable extends javax.swing.JPanel {
         jLabelRegistros = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
+
+        setPreferredSize(new java.awt.Dimension(920, 528));
 
         jPanel2.setOpaque(false);
 
@@ -178,14 +180,14 @@ public class BoneTable extends javax.swing.JPanel {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 901, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -197,9 +199,9 @@ public class BoneTable extends javax.swing.JPanel {
             int row = jTable.getSelectedRow();
             int id = Integer.parseInt(jTable.getValueAt(row, 0).toString());
 
-            PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, BoneTable.this);
+            PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, CanecaTable.this);
             if (pai != null) {
-                pai.trocarPainel(new BonePanelFinal(id));
+                pai.trocarPainel(new CanecaPanelFinal(id));
             }
         }
     }//GEN-LAST:event_jTableMouseClicked
@@ -217,8 +219,9 @@ public class BoneTable extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
     // End of variables declaration//GEN-END:variables
+
     private void ShowList() {
-        String sql = "SELECT * FROM bone";
+        String sql = "SELECT * FROM caneca";
         int totalRegistros = 0;
 
         try {
