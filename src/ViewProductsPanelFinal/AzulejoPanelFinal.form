@@ -303,15 +303,13 @@
                   <EmptySpace pref="91" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabelPrecoMin" pref="119" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabelQuantidadeTotais" max="32767" attributes="0"/>
-                          <Component id="jLabelMaterialTotais" max="32767" attributes="0"/>
-                          <Component id="jLabelAcabamentoTotais" max="32767" attributes="0"/>
-                          <Component id="jLabel19" pref="119" max="32767" attributes="0"/>
-                          <Component id="jLabel20" max="32767" attributes="0"/>
-                          <Component id="jLabelFreteTotais" max="32767" attributes="0"/>
-                          <Component id="jLabelTotalTotais" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jLabelQuantidadeTotais" max="32767" attributes="0"/>
+                      <Component id="jLabelMaterialTotais" max="32767" attributes="0"/>
+                      <Component id="jLabelAcabamentoTotais" max="32767" attributes="0"/>
+                      <Component id="jLabel19" pref="119" max="32767" attributes="0"/>
+                      <Component id="jLabel20" max="32767" attributes="0"/>
+                      <Component id="jLabelFreteTotais" max="32767" attributes="0"/>
+                      <Component id="jLabelTotalTotais" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

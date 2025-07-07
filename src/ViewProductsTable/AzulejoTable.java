@@ -39,10 +39,10 @@ public class AzulejoTable extends javax.swing.JPanel {
         jLabelRegistros = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
-        setMaximumSize(new java.awt.Dimension(1030, 555));
-        setMinimumSize(new java.awt.Dimension(1030, 555));
+        setMaximumSize(new java.awt.Dimension(80000, 80000));
+        setMinimumSize(new java.awt.Dimension(0, 0));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(1030, 555));
+        setPreferredSize(new java.awt.Dimension(920, 528));
 
         jTable.setBackground(new java.awt.Color(204, 255, 255));
         jTable.setForeground(new java.awt.Color(0, 0, 0));
