@@ -10,13 +10,13 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-public class CanecaPanelFinal extends javax.swing.JPanel {
+public class CanetaPanelFinal extends javax.swing.JPanel {
 
     private final Connection conn = ConnectionPostgres.getConnection();
     private double precoUnitario;
     private double precoMin;
 
-    public CanecaPanelFinal(int id) {
+    public CanetaPanelFinal(int id) {
         initComponents();
         carregarDadosDoBanco(id);
         disableLxA();
@@ -75,13 +75,9 @@ public class CanecaPanelFinal extends javax.swing.JPanel {
         jToggleButton1 = new Utilitários.RoundToggleButton();
         jToggleButton2 = new Utilitários.RoundToggleButton();
 
-        setMaximumSize(new java.awt.Dimension(1030, 555));
-        setMinimumSize(new java.awt.Dimension(1030, 555));
-        setPreferredSize(new java.awt.Dimension(1030, 555));
-
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/caneca.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/caneta.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
@@ -241,7 +237,7 @@ public class CanecaPanelFinal extends javax.swing.JPanel {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelPrecoMin, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                     .addComponent(jLabelQuantidadeTotais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -417,7 +413,7 @@ public class CanecaPanelFinal extends javax.swing.JPanel {
                             .addComponent(jLabelPrazo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelTipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelMidia, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -515,7 +511,7 @@ public class CanecaPanelFinal extends javax.swing.JPanel {
     }
 
     private void carregarDadosDoBanco(int id) {
-        String sql = "SELECT * FROM caneca WHERE id = ?";
+        String sql = "SELECT * FROM caneta WHERE id = ?";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -630,7 +626,7 @@ public class CanecaPanelFinal extends javax.swing.JPanel {
     }
 
     private double setPrecoMin(int id) {
-        String sql = "SELECT valor_min FROM caneca WHERE id = ?";
+        String sql = "SELECT valor_min FROM caneta WHERE id = ?";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
@@ -666,7 +662,7 @@ public class CanecaPanelFinal extends javax.swing.JPanel {
             return Integer.parseInt(numeroStr);
         } catch (NumberFormatException e) {
             System.err.println("Erro ao obter a quantidade: " + e.getMessage());
-            return 0;
+            return 0; 
         }
     }
 }

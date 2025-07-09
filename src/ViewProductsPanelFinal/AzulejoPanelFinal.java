@@ -27,6 +27,7 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
         setVisibleLabelPrecoMin();
         setPrecoMin(id);
         calcularTotal();
+        jLabelQuantidadeTotais.setText(String.valueOf(getQuantidade() * Integer.parseInt(spinnerPanelQuantidade1.getValorString())));
     }
 
     @SuppressWarnings("unchecked")
@@ -459,7 +460,7 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
 
     private void spinnerPanelQuantidade1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_spinnerPanelQuantidade1PropertyChange
         if ("valor".equals(evt.getPropertyName())) {
-            jLabelQuantidadeTotais.setText(String.valueOf(evt.getNewValue()));
+            jLabelQuantidadeTotais.setText(String.valueOf(getQuantidade() * Integer.parseInt(spinnerPanelQuantidade1.getValorString())));
             somaMatQtd();
             calcularTotal();
         }
@@ -560,7 +561,7 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
     }
 
     private void somaMatQtd() {
-        int qtdInt = Integer.parseInt(jLabelQuantidadeTotais.getText().trim());
+        int qtdInt = Integer.parseInt(spinnerPanelQuantidade1.getValorString().trim());
         double soma = precoUnitario * qtdInt;
 
         String somaFmt = String.format(new Locale("pt", "BR"), "%.2f", soma)
@@ -659,5 +660,16 @@ public class AzulejoPanelFinal extends javax.swing.JPanel {
         }
 
         return precoMin;
+    }
+
+    private int getQuantidade() {
+        String texto = jLabelQuantidade.getText();
+        try {
+            String numeroStr = texto.split(":")[1].trim();
+            return Integer.parseInt(numeroStr);
+        } catch (NumberFormatException e) {
+            System.err.println("Erro ao obter a quantidade: " + e.getMessage());
+            return 0;
+        }
     }
 }

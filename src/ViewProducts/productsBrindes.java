@@ -6,6 +6,7 @@ import javax.swing.SwingUtilities;
 import Main.PainelPrincipal;
 import ViewProductsTable.BoneTable;
 import ViewProductsTable.CanecaTable;
+import ViewProductsTable.CanetaTable;
 
 public class productsBrindes extends JPanel {
 
@@ -28,7 +29,6 @@ public class productsBrindes extends JPanel {
         setMaximumSize(new java.awt.Dimension(80000, 80000));
         setMinimumSize(new java.awt.Dimension(0, 0));
         setOpaque(false);
-        setPreferredSize(null);
 
         jButton11.setBackground(new java.awt.Color(204, 255, 255));
         jButton11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -49,6 +49,11 @@ public class productsBrindes extends JPanel {
         jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton10.setIconTextGap(30);
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
 
         jButton9.setBackground(new java.awt.Color(204, 255, 255));
         jButton9.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -159,6 +164,13 @@ public class productsBrindes extends JPanel {
             pai.trocarPainel(new CanecaTable());
         }
     }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        PainelPrincipal pai = (PainelPrincipal) SwingUtilities.getAncestorOfClass(PainelPrincipal.class, this);
+        if (pai != null) {
+            pai.trocarPainel(new CanetaTable());
+        }
+    }//GEN-LAST:event_jButton10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
