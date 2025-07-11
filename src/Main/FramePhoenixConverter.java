@@ -1,5 +1,6 @@
 package Main;
 
+import Atualizador.Atualizador;
 import DatabaseConnection.ConnectionPostgres;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.BorderLayout;
@@ -16,6 +17,7 @@ public class FramePhoenixConverter extends JFrame {
 
     public static void main(String[] args) {
         FlatDarkLaf.setup();
+        Atualizador.checarAtualizacao();
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("Conexao com o banco encerrada.");
             ConnectionPostgres.closeConnection();
