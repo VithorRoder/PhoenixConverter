@@ -27,7 +27,7 @@ public class CanecaPanelFinal extends javax.swing.JPanel {
         setVisibleLabelPrecoMin();
         setPrecoMin(id);
         calcularTotal();
-        jLabelQuantidadeTotais.setText(String.valueOf(getQuantidade() * Integer.parseInt(spinnerPanelQuantidade1.getValorString())));
+        attQtxValor();
     }
 
     @SuppressWarnings("unchecked")
@@ -457,7 +457,7 @@ public class CanecaPanelFinal extends javax.swing.JPanel {
 
     private void spinnerPanelQuantidade1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_spinnerPanelQuantidade1PropertyChange
         if ("valor".equals(evt.getPropertyName())) {
-            jLabelQuantidadeTotais.setText(String.valueOf(getQuantidade() * Integer.parseInt(spinnerPanelQuantidade1.getValorString())));
+            attQtxValor();
             somaMatQtd();
             calcularTotal();
         }
@@ -668,5 +668,9 @@ public class CanecaPanelFinal extends javax.swing.JPanel {
             System.err.println("Erro ao obter a quantidade: " + e.getMessage());
             return 0;
         }
+    }
+
+    private void attQtxValor() {
+        jLabelQuantidadeTotais.setText(String.valueOf(getQuantidade() * Integer.parseInt(spinnerPanelQuantidade1.getValorString())));
     }
 }
