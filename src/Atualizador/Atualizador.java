@@ -11,6 +11,7 @@ public class Atualizador {
 
     private static final String VERSAO_ATUAL = "1.0.4";
     private static final String JSON_URL = "https://raw.githubusercontent.com/VithorRoder/PhoenixConverter/master/versao.json";
+    //teste proArt px13
 
     public static void checarAtualizacao() {
         try {
